@@ -1,0 +1,42 @@
+{
+  "siteTitle": "AI i Undervisning & Læring",
+  "nav": {
+    "home": "Hjem",
+    "aiTeaching": "AI i Undervisning",
+    "guide": "Guide",
+    "comparison": "Sammenligning",
+    "quiz": "Quiz Generator"
+  },
+  "landing": {
+    "headline": "Opdag AI i undervisning og læring",
+    "subheadline": "Guides, værktøjer og ressourcer til lærere, elever og forældre.",
+    "cta": "Kom i gang"
+  },
+  "quiz": {
+    "headline": "Quiz-generator",
+    "description": "Indtast et emne og få en AI-genereret quiz.",
+    "inputPlaceholder": "Skriv et emne...",
+    "generate": "Generér quiz",
+    "result": "Din quiz:"
+  },
+  "hero": {
+    "title": "AI i Undervisning",
+    "subtitle": "Praktiske guides og værktøjer til brug af AI i skolen og hjemme",
+    "cta": "Kom i gang"
+  },
+  "features": {
+    "title": "Hvad kan du lære?",
+    "feature1": {
+      "title": "AI-værktøjer",
+      "description": "Lær at bruge ChatGPT, Claude og andre AI-værktøjer effektivt"
+    },
+    "feature2": {
+      "title": "Undervisning",
+      "description": "Få praktiske tips til at integrere AI i din undervisning"
+    },
+    "feature3": {
+      "title": "Læring",
+      "description": "Forstå hvordan AI kan støtte elevers læring og udvikling"
+    }
+  }
+} 

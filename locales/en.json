@@ -1,0 +1,58 @@
+{
+  "siteTitle": "AI in Education & Learning",
+  "nav": {
+    "home": "Home",
+    "aiTeaching": "AI in Teaching",
+    "guide": "Guide",
+    "comparison": "Comparison",
+    "quiz": "Quiz Generator"
+  },
+  "landing": {
+    "headline": "Discover AI in education and learning",
+    "subheadline": "Guides, tools and resources for teachers, students and parents.",
+    "cta": "Get started"
+  },
+  "quiz": {
+    "headline": "Quiz Generator",
+    "description": "Enter a topic and get an AI-generated quiz.",
+    "inputPlaceholder": "Type a topic...",
+    "generate": "Generate quiz",
+    "result": "Your quiz:",
+    "start": "Start a quiz",
+    "score": "You got {score} out of {total} correct!",
+    "expert": "Fantastic! You are an AI expert 🎉",
+    "good": "Well done – try again to get even better!",
+    "tryAgain": "Try again – AI can be tricky!",
+    "newQuiz": "New quiz",
+    "readGuide": "Read guide about AI in quizzes"
+  },
+  "callouts": {
+    "tip": "Tip",
+    "warning": "Warning",
+    "info": "Info"
+  },
+  "comparison": {
+    "miniReviews": "Mini-reviews",
+    "whichToChoose": "Which tool should you choose?"
+  },
+  "hero": {
+    "title": "AI in Education",
+    "subtitle": "Practical guides and tools for using AI in school and at home",
+    "cta": "Get Started"
+  },
+  "features": {
+    "title": "What can you learn?",
+    "feature1": {
+      "title": "AI Tools",
+      "description": "Learn to use ChatGPT, Claude and other AI tools effectively"
+    },
+    "feature2": {
+      "title": "Teaching",
+      "description": "Get practical tips for integrating AI into your teaching"
+    },
+    "feature3": {
+      "title": "Learning",
+      "description": "Understand how AI can support student learning and development"
+    }
+  }
+} 

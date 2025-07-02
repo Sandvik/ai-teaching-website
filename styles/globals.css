@@ -1,0 +1,342 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --nordic-sage: #9CAF88;
+  --nordic-slate: #6B7280;
+  --nordic-cream: #F5F5F0;
+  --nordic-charcoal: #374151;
+  --nordic-forest: #4A6741;
+  --nordic-sky: #87CEEB;
+  --nordic-warm: #D4A574;
+  --nordic-cool: #A8DADC;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--nordic-cream);
+  color: var(--nordic-charcoal);
+}
+
+/* Markdown content styling */
+.markdown-content {
+  color: var(--nordic-charcoal);
+  line-height: 1.7;
+}
+
+.markdown-content h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--nordic-forest);
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+}
+
+.markdown-content h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--nordic-forest);
+  margin-bottom: 0.75rem;
+  margin-top: 1.5rem;
+  border-bottom: 2px solid var(--nordic-sage);
+  padding-bottom: 0.5rem;
+}
+
+.markdown-content h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--nordic-forest);
+  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+}
+
+.markdown-content h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--nordic-forest);
+  margin-bottom: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.markdown-content p {
+  margin-bottom: 1rem;
+  color: var(--nordic-charcoal);
+}
+
+.markdown-content ul, .markdown-content ol {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+}
+
+.markdown-content li {
+  margin-bottom: 0.5rem;
+  color: var(--nordic-charcoal);
+}
+
+.markdown-content li::marker {
+  color: var(--nordic-sage);
+}
+
+.markdown-content a {
+  color: var(--nordic-sage);
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.markdown-content a:hover {
+  color: var(--nordic-forest);
+}
+
+.markdown-content strong {
+  color: var(--nordic-charcoal);
+  font-weight: 600;
+}
+
+.markdown-content blockquote {
+  border-left: 4px solid var(--nordic-sage);
+  background-color: rgba(156, 175, 136, 0.1);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin: 1rem 0;
+  color: var(--nordic-forest);
+}
+
+.markdown-content code {
+  background-color: rgba(156, 175, 136, 0.2);
+  color: var(--nordic-forest);
+  padding: 0.1rem 0.3rem;
+  border-radius: 0.3rem;
+  font-size: 0.95em;
+}
+
+.markdown-content pre {
+  background-color: var(--nordic-charcoal);
+  color: var(--nordic-cream);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin: 1rem 0;
+  font-family: 'Courier New', Courier, monospace;
+  line-height: 1.5;
+}
+
+.markdown-content pre code {
+  background-color: transparent;
+  color: var(--nordic-cream);
+  padding: 0;
+  border-radius: 0;
+  font-size: 0.9em;
+}
+
+/* Sikre at alle tekster er synlige */
+.markdown-content * {
+  color: inherit;
+}
+
+.markdown-content p, 
+.markdown-content div, 
+.markdown-content span {
+  color: var(--nordic-charcoal);
+}
+
+/* Prompt eksempler styling */
+.markdown-content p:has(code),
+.markdown-content div:has(code) {
+  color: var(--nordic-charcoal);
+}
+
+.markdown-content table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin: 1rem 0;
+}
+
+.markdown-content th {
+  background-color: var(--nordic-sage);
+  color: white;
+  font-weight: bold;
+  padding: 0.75rem 1rem;
+  text-align: left;
+}
+
+.markdown-content td {
+  border-bottom: 1px solid rgba(156, 175, 136, 0.2);
+  padding: 0.75rem 1rem;
+  color: var(--nordic-charcoal);
+}
+
+.markdown-content tr:nth-child(even) {
+  background-color: rgba(156, 175, 136, 0.05);
+}
+
+.markdown-content tr:hover {
+  background-color: rgba(156, 175, 136, 0.1);
+}
+
+.markdown-content img {
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin: 1rem 0;
+}
+
+/* Custom button styles */
+.btn-primary {
+  background-color: var(--nordic-sage);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: var(--nordic-forest);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--nordic-sage);
+  border: 2px solid var(--nordic-sage);
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+  background-color: var(--nordic-sage);
+  color: white;
+}
+
+/* Card styles */
+.card {
+  background-color: white;
+  border: 1px solid rgba(156, 175, 136, 0.2);
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s;
+}
+
+.card:hover {
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Navigation styles */
+.nav-link {
+  color: var(--nordic-slate);
+  transition: color 0.2s;
+}
+
+.nav-link:hover {
+  color: var(--nordic-sage);
+}
+
+.nav-link.active {
+  color: var(--nordic-forest);
+  font-weight: 600;
+}
+
+/* Hero section styles */
+.hero-gradient {
+  background: linear-gradient(135deg, var(--nordic-cream) 0%, rgba(156, 175, 136, 0.1) 100%);
+}
+
+/* Badge styles */
+.badge {
+  background-color: rgba(156, 175, 136, 0.2);
+  color: var(--nordic-forest);
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Table styles */
+.table-header {
+  background-color: rgba(156, 175, 136, 0.1);
+  color: var(--nordic-forest);
+  font-weight: 600;
+}
+
+.table-row:hover {
+  background-color: rgba(156, 175, 136, 0.05);
+}
+
+/* Form styles */
+.form-input {
+  border: 1px solid rgba(156, 175, 136, 0.3);
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  background-color: white;
+  color: var(--nordic-charcoal);
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--nordic-sage);
+  box-shadow: 0 0 0 3px rgba(156, 175, 136, 0.1);
+}
+
+/* Quiz styles */
+.quiz-option {
+  border: 2px solid rgba(156, 175, 136, 0.3);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  background-color: white;
+  transition: all 0.2s;
+}
+
+.quiz-option:hover {
+  border-color: var(--nordic-sage);
+  background-color: rgba(156, 175, 136, 0.05);
+}
+
+.quiz-option.selected {
+  border-color: var(--nordic-sage);
+  background-color: rgba(156, 175, 136, 0.1);
+}
+
+.quiz-option.correct {
+  border-color: var(--nordic-forest);
+  background-color: rgba(74, 103, 65, 0.1);
+}
+
+.quiz-option.incorrect {
+  border-color: #EF4444;
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+/* Footer styles */
+.footer {
+  background-color: var(--nordic-charcoal);
+  color: var(--nordic-cream);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .hero-gradient {
+    background: linear-gradient(135deg, var(--nordic-cream) 0%, rgba(156, 175, 136, 0.05) 100%);
+  }
+  
+  .markdown-content h1 {
+    font-size: 1.75rem;
+  }
+  
+  .markdown-content h2 {
+    font-size: 1.25rem;
+  }
+  
+  .markdown-content table {
+    font-size: 0.875rem;
+  }
+} 
