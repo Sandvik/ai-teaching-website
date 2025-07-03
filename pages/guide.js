@@ -11,6 +11,9 @@ import path from 'path';
 export default function Guide({ content }) {
   const { locale } = useContext(LocaleContext);
   
+  // Vælg det korrekte indhold baseret på locale
+  const currentContent = content[locale] || content.da;
+  
   const quickLinks = [
     {
       title: locale === 'en' ? 'Getting Started' : 'Kom i gang',
@@ -134,7 +137,7 @@ export default function Guide({ content }) {
           {/* Content */}
           <div className="lg:col-span-2">
             <article className="bg-white rounded-xl shadow-sm border border-gray-200 p-8 markdown-content">
-              <MarkdownRenderer content={content} />
+              <MarkdownRenderer content={currentContent} />
             </article>
           </div>
         </div>
@@ -201,10 +204,27 @@ export default function Guide({ content }) {
 
 export async function getStaticProps() {
   try {
-    const filePath = path.join(process.cwd(), 'content/da/guide.md');
-    const content = fs.readFileSync(filePath, 'utf8');
-    return { props: { content } };
-  } catch (e) {
-    return { props: { content: '# Fejl\n\nKunne ikke indlæse guide.md' } };
+    // Indlæs både dansk og engelsk indhold
+    const daContent = fs.readFileSync(path.join(process.cwd(), 'content/da/guide.md'), 'utf8');
+    const enContent = fs.readFileSync(path.join(process.cwd(), 'content/en/guide.md'), 'utf8');
+    
+    return {
+      props: {
+        content: {
+          da: daContent,
+          en: enContent
+        }
+      }
+    };
+  } catch (error) {
+    console.error('Error loading guide content:', error);
+    return {
+      props: {
+        content: {
+          da: '# Fejl\nKunne ikke indlæse indhold.',
+          en: '# Error\nCould not load content.'
+        }
+      }
+    };
   }
 } 

@@ -11,6 +11,9 @@ import path from 'path';
 export default function AITeaching({ content }) {
   const { locale } = useContext(LocaleContext);
   
+  // Vælg det korrekte indhold baseret på locale
+  const currentContent = content[locale] || content.da;
+
   const quickLinks = [
     {
       title: locale === 'en' ? 'Getting Started' : 'Kom i gang',
@@ -170,7 +173,7 @@ export default function AITeaching({ content }) {
           {/* Content */}
           <div className="lg:col-span-3">
             <article className="bg-white rounded-xl shadow-sm border border-gray-200 p-8 markdown-content">
-              <MarkdownRenderer content={content} />
+              <MarkdownRenderer content={currentContent} />
             </article>
           </div>
         </div>
@@ -256,10 +259,27 @@ export default function AITeaching({ content }) {
 
 export async function getStaticProps() {
   try {
-    const filePath = path.join(process.cwd(), 'content/da/ai-undervisning.md');
-    const content = fs.readFileSync(filePath, 'utf8');
-    return { props: { content } };
-  } catch (e) {
-    return { props: { content: '# Fejl\n\nKunne ikke indlæse ai-undervisning.md' } };
+    // Indlæs både dansk og engelsk indhold
+    const daContent = fs.readFileSync(path.join(process.cwd(), 'content/da/ai-undervisning.md'), 'utf8');
+    const enContent = fs.readFileSync(path.join(process.cwd(), 'content/en/ai-teaching.md'), 'utf8');
+    
+    return {
+      props: {
+        content: {
+          da: daContent,
+          en: enContent
+        }
+      }
+    };
+  } catch (error) {
+    console.error('Error loading AI teaching content:', error);
+    return {
+      props: {
+        content: {
+          da: '# Fejl\nKunne ikke indlæse indhold.',
+          en: '# Error\nCould not load content.'
+        }
+      }
+    };
   }
 } 

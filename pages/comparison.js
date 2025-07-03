@@ -18,9 +18,12 @@ function parseTable(md) {
   return { headers, rows };
 }
 
-export default function Comparison({ content, table }) {
+export default function Comparison({ content }) {
   const { locale } = useContext(LocaleContext);
   
+  // Vælg det korrekte indhold baseret på locale
+  const currentContent = content[locale] || content.da;
+
   const quickFilters = [
     {
       title: locale === 'en' ? 'Free Tools' : 'Gratis værktøjer',
@@ -159,7 +162,7 @@ export default function Comparison({ content, table }) {
           {/* Main Content */}
           <div className="lg:col-span-3">
             <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-8">
-              <MarkdownRenderer content={content} />
+              <MarkdownRenderer content={currentContent} />
             </div>
           </div>
         </div>
@@ -226,11 +229,27 @@ export default function Comparison({ content, table }) {
 
 export async function getStaticProps() {
   try {
-    const filePath = path.join(process.cwd(), 'content/da/comparison.md');
-    const content = fs.readFileSync(filePath, 'utf8');
-    const table = parseTable(content);
-    return { props: { content, table } };
-  } catch (e) {
-    return { props: { content: '# Fejl\n\nKunne ikke indlæse comparison.md', table: null } };
+    // Indlæs både dansk og engelsk indhold
+    const daContent = fs.readFileSync(path.join(process.cwd(), 'content/da/comparison.md'), 'utf8');
+    const enContent = fs.readFileSync(path.join(process.cwd(), 'content/en/comparison.md'), 'utf8');
+    
+    return {
+      props: {
+        content: {
+          da: daContent,
+          en: enContent
+        }
+      }
+    };
+  } catch (error) {
+    console.error('Error loading comparison content:', error);
+    return {
+      props: {
+        content: {
+          da: '# Fejl\nKunne ikke indlæse indhold.',
+          en: '# Error\nCould not load content.'
+        }
+      }
+    };
   }
 } 
