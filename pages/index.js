@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Layout from '../components/Layout';
 import Link from 'next/link';
 import { 
@@ -12,24 +12,34 @@ import {
   HeartIcon
 } from '@heroicons/react/24/outline';
 import SEO from '../components/SEO';
+import { LocaleContext } from './_app';
 
 export default function Home() {
+  const { locale } = useContext(LocaleContext);
   return (
     <Layout>
       <SEO
-        title="AI i Undervisning | ai-skole.dk - Alt om AI i skolen, guides, værktøjer, matematik, inklusion, forældre og ministeriets anbefalinger"
-        description="AI i undervisning og læring. Få de bedste guides, værktøjer og officielle anbefalinger til lærere, forældre og skoler. Alt om AI i folkeskolen, AI matematik, AI inklusion, AI forældre, AI værktøjer, ChatGPT i skolen og ministeriets retningslinjer."
-        keywords="AI i undervisning, AI skolen, AI for lærere, AI folkeskolen, AI værktøjer, AI matematik, AI inklusion, AI forældre, ministeriets anbefalinger AI, ChatGPT skole, AI ressourcer, AI guides, AI opgaver, AI undervisningsmateriale, AI i skolen, AI undervisning Danmark, AI for elever, AI forældre samarbejde, AI i folkeskolen, AI og læring, AI og undervisning, AI og skema, AI og opgaver, AI og prøver, AI og GDPR, AI og ministeriet, AI og teknologi i skolen, AI og digital dannelse"
+        title={locale === 'en' ? 'AI in Education | ai-skole.dk' : 'AI i Undervisning | ai-skole.dk'}
+        description={locale === 'en' 
+          ? 'AI in education and learning. Get the best guides, tools and official recommendations for teachers, parents and schools.'
+          : 'AI i undervisning og læring. Få de bedste guides, værktøjer og officielle anbefalinger til lærere, forældre og skoler.'
+        }
+        keywords={locale === 'en'
+          ? 'AI in education, AI for teachers, AI tools, AI learning, AI teaching, AI Denmark'
+          : 'AI i undervisning, AI skolen, AI for lærere, AI folkeskolen, AI værktøjer, AI matematik, AI inklusion, AI forældre, ChatGPT skole, AI ressourcer, AI guides'
+        }
         url="https://ai-skole.dk"
         image="https://ai-skole.dk/og-image.png"
         canonical="https://ai-skole.dk"
         structuredData={{
           '@context': 'https://schema.org',
           '@type': 'WebSite',
-          'name': 'AI i Undervisning',
+          'name': locale === 'en' ? 'AI in Education' : 'AI i Undervisning',
           'url': 'https://ai-skole.dk',
-          'description': 'AI i undervisning og læring. Guides, værktøjer og officielle anbefalinger til lærere, forældre og skoler. Alt om AI i folkeskolen, AI matematik, AI inklusion, AI forældre, AI værktøjer og ministeriets retningslinjer.',
-          'inLanguage': 'da',
+          'description': locale === 'en' 
+            ? 'AI in education and learning. Guides, tools and official recommendations for teachers, parents and schools.'
+            : 'AI i undervisning og læring. Guides, værktøjer og officielle anbefalinger til lærere, forældre og skoler.',
+          'inLanguage': locale,
           'publisher': {
             '@type': 'Person',
             'name': 'Thomas Henry Oz Sandvik'
@@ -52,11 +62,16 @@ export default function Home() {
             Praktiske værktøjer og guides til lærere og forældre.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/guide" className="btn-primary">
-              Læs guiden
+            <Link href="/ai-teaching" className="btn-primary text-lg px-8 py-4">
+              {locale === 'en' ? 'Start Learning' : 'Kom i gang'}
             </Link>
-            <Link href="/comparison" className="btn-secondary">
-              Se værktøjer
+            <Link href="/comparison" className="btn-secondary text-lg px-8 py-4">
+              {locale === 'en' ? 'Explore Tools' : 'Udforsk værktøjer'}
+            </Link>
+          </div>
+          <div className="mt-6 text-center">
+            <Link href="/quiz-generator" className="text-sage-600 hover:text-sage-700 font-medium">
+              {locale === 'en' ? 'Try our Quiz Generator →' : 'Prøv vores Quiz-generator →'}
             </Link>
           </div>
         </div>
@@ -174,7 +189,7 @@ export default function Home() {
                 <span className="text-gray-700">Tips til forældre</span>
               </div>
             </div>
-            <Link href="/guide" className="btn-primary">
+            <Link href="/ai-teaching" className="btn-primary">
               Læs guiden
             </Link>
           </div>

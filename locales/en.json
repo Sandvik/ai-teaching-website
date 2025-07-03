@@ -3,9 +3,9 @@
   "description": "Practical guides and tools for using AI in education and learning",
   "aiTeaching": "AI in Teaching",
   "nav": {
-    "home": "AI Education",
-    "aiTeaching": "AI in Teaching",
-    "comparison": "Tool Guide",
+    "home": "AI Overview",
+    "aiTeaching": "Complete Guide",
+    "comparison": "AI Tools",
     "quiz": "Quizer",
     "ministeriet": "Ministry Recommendations",
     "about": "About"

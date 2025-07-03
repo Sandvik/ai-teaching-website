@@ -5,6 +5,9 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import AdPlaceholder from './AdPlaceholder';
 import ScrollToTop from './ScrollToTop';
+import Search from './Search';
+import Breadcrumbs from './Breadcrumbs';
+import RelatedContent from './RelatedContent';
 
 export default function Layout({ children }) {
   const { locale, setLocale, messages } = useContext(LocaleContext);
@@ -57,7 +60,11 @@ export default function Layout({ children }) {
               >
                 {messages.nav.quiz}
               </Link>
+            </div>
 
+            {/* Search */}
+            <div className="hidden md:block w-64">
+              <Search />
             </div>
 
             {/* Language Toggle */}
@@ -74,7 +81,9 @@ export default function Layout({ children }) {
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <AdPlaceholder />
+        <Breadcrumbs />
         {children}
+        <RelatedContent />
       </main>
 
       {/* Scroll to Top Button */}
