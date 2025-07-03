@@ -3,9 +3,9 @@
   "description": "Praktiske guides og værktøjer til brug af AI i undervisning og læring",
   "aiTeaching": "AI i Undervisning",
   "nav": {
-    "home": "Hjem",
+    "home": "AI Undervisning",
     "comparison": "Værktøjsguide",
-    "quiz": "Quiz Generator",
+    "quiz": "Quizer",
     "ministeriet": "Ministeriets Anbefalinger",
     "about": "Om"
   },

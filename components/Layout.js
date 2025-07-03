@@ -57,12 +57,7 @@ export default function Layout({ children }) {
               >
                 {messages.nav.quiz}
               </Link>
-              <Link 
-                href="/ministeriet-anbefalinger" 
-                className={`nav-link ${isActive('/ministeriet-anbefalinger') ? 'active' : ''}`}
-              >
-                {messages.nav.ministeriet}
-              </Link>
+
             </div>
 
             {/* Language Toggle */}
