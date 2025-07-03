@@ -91,17 +91,16 @@ kill_port_3000
 # Vent på at porten er ledig
 wait_for_port
 
-# Build og start serveren (statisk export)
-echo "🚀 Bygger og starter serveren (statisk export)..."
-npm run build:static:cross
+# Build og start serveren (lokal udvikling - IKKE statisk export)
+echo "🚀 Bygger og starter serveren (lokal udvikling)..."
+npm run build
 if [ $? -ne 0 ]; then
   echo "❌ Build fejlede!"
   exit 1
 fi
 
 echo "🚀 Starter serveren..."
-# For static export, use serve instead of next start
-npx serve@latest out -p 3000 &
+npm start &
 SERVER_PID=$!
 
 # Vent lidt og tjek om serveren startede
@@ -122,7 +121,7 @@ fi
 
 echo "✅ Server startet! Tryk Ctrl+C for at stoppe."
 echo "📊 Server PID: $SERVER_PID"
-echo "🌐 Dette er statisk export version (kan deployes online)"
+echo "🔧 Dette er lokal udviklingsversion (ikke statisk export)"
 
 # Vent på at brugeren stopper serveren
 wait $SERVER_PID 

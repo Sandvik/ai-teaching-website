@@ -11,10 +11,36 @@ import {
   GlobeAltIcon,
   HeartIcon
 } from '@heroicons/react/24/outline';
+import SEO from '../components/SEO';
 
 export default function Home() {
   return (
     <Layout>
+      <SEO
+        title="AI i Undervisning | ai-skole.dk - Alt om AI i skolen, guides, værktøjer, matematik, inklusion, forældre og ministeriets anbefalinger"
+        description="AI i undervisning og læring. Få de bedste guides, værktøjer og officielle anbefalinger til lærere, forældre og skoler. Alt om AI i folkeskolen, AI matematik, AI inklusion, AI forældre, AI værktøjer, ChatGPT i skolen og ministeriets retningslinjer."
+        keywords="AI i undervisning, AI skolen, AI for lærere, AI folkeskolen, AI værktøjer, AI matematik, AI inklusion, AI forældre, ministeriets anbefalinger AI, ChatGPT skole, AI ressourcer, AI guides, AI opgaver, AI undervisningsmateriale, AI i skolen, AI undervisning Danmark, AI for elever, AI forældre samarbejde, AI i folkeskolen, AI og læring, AI og undervisning, AI og skema, AI og opgaver, AI og prøver, AI og GDPR, AI og ministeriet, AI og teknologi i skolen, AI og digital dannelse"
+        url="https://ai-skole.dk"
+        image="https://ai-skole.dk/og-image.png"
+        canonical="https://ai-skole.dk"
+        structuredData={{
+          '@context': 'https://schema.org',
+          '@type': 'WebSite',
+          'name': 'AI i Undervisning',
+          'url': 'https://ai-skole.dk',
+          'description': 'AI i undervisning og læring. Guides, værktøjer og officielle anbefalinger til lærere, forældre og skoler. Alt om AI i folkeskolen, AI matematik, AI inklusion, AI forældre, AI værktøjer og ministeriets retningslinjer.',
+          'inLanguage': 'da',
+          'publisher': {
+            '@type': 'Person',
+            'name': 'Thomas Henry Oz Sandvik'
+          },
+          'potentialAction': {
+            '@type': 'SearchAction',
+            'target': 'https://ai-skole.dk/?s={search_term_string}',
+            'query-input': 'required name=search_term_string'
+          }
+        }}
+      />
       {/* Hero Section */}
       <section className="hero-gradient rounded-xl shadow-lg py-16 px-8 mb-12 text-center">
         <div className="max-w-4xl mx-auto">
@@ -27,7 +53,7 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/guide" className="btn-primary">
-              Kom i gang
+              Læs guiden
             </Link>
             <Link href="/comparison" className="btn-secondary">
               Se værktøjer
@@ -64,6 +90,59 @@ export default function Home() {
             <ChartBarIcon className="h-12 w-12 text-sage-600 mx-auto mb-4" />
             <h3 className="text-lg font-semibold text-gray-800 mb-2">Evaluering</h3>
             <p className="text-gray-600">Lav quizzer og tests automatisk med AI</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Specialized Content */}
+      <section className="mb-12">
+        <h2 className="text-3xl font-bold text-gray-800 text-center mb-8">
+          Specialiserede guides
+        </h2>
+        <div className="grid md:grid-cols-3 gap-6">
+          <div className="card p-6">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-8 h-8 bg-sage-100 rounded-lg flex items-center justify-center">
+                <span className="text-sage-600 font-bold">M</span>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-800">AI i Matematik</h3>
+            </div>
+            <p className="text-gray-600 mb-4">
+              Opdag de bedste AI-værktøjer til matematikundervisning og hjemmestøtte.
+            </p>
+            <Link href="/ai-matematik" className="text-sage-600 hover:text-sage-700 font-medium">
+              Læs mere →
+            </Link>
+          </div>
+
+          <div className="card p-6">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-8 h-8 bg-sage-100 rounded-lg flex items-center justify-center">
+                <span className="text-sage-600 font-bold">I</span>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-800">Inklusion & Differentiering</h3>
+            </div>
+            <p className="text-gray-600 mb-4">
+              Hvordan AI kan støtte elever med forskellige behov og læringsstile.
+            </p>
+            <Link href="/ai-inklusion" className="text-sage-600 hover:text-sage-700 font-medium">
+              Læs mere →
+            </Link>
+          </div>
+
+          <div className="card p-6">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-8 h-8 bg-sage-100 rounded-lg flex items-center justify-center">
+                <span className="text-sage-600 font-bold">F</span>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-800">Forældresamarbejde</h3>
+            </div>
+            <p className="text-gray-600 mb-4">
+              Forbedr kommunikationen mellem skole og hjem med AI-værktøjer.
+            </p>
+            <Link href="/ai-foraeldremoede" className="text-sage-600 hover:text-sage-700 font-medium">
+              Læs mere →
+            </Link>
           </div>
         </div>
       </section>
@@ -126,59 +205,6 @@ export default function Home() {
             </div>
             <Link href="/comparison" className="btn-primary">
               Se sammenligning
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Specialized Content */}
-      <section className="mb-12">
-        <h2 className="text-3xl font-bold text-gray-800 text-center mb-8">
-          Specialiserede guides
-        </h2>
-        <div className="grid md:grid-cols-3 gap-6">
-          <div className="card p-6">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-8 bg-sage-100 rounded-lg flex items-center justify-center">
-                <span className="text-sage-600 font-bold">M</span>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-800">AI i Matematik</h3>
-            </div>
-            <p className="text-gray-600 mb-4">
-              Opdag de bedste AI-værktøjer til matematikundervisning og hjemmestøtte.
-            </p>
-            <Link href="/ai-matematik" className="text-sage-600 hover:text-sage-700 font-medium">
-              Læs mere →
-            </Link>
-          </div>
-
-          <div className="card p-6">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-8 bg-sage-100 rounded-lg flex items-center justify-center">
-                <span className="text-sage-600 font-bold">I</span>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-800">Inklusion & Differentiering</h3>
-            </div>
-            <p className="text-gray-600 mb-4">
-              Hvordan AI kan støtte elever med forskellige behov og læringsstile.
-            </p>
-            <Link href="/ai-inklusion" className="text-sage-600 hover:text-sage-700 font-medium">
-              Læs mere →
-            </Link>
-          </div>
-
-          <div className="card p-6">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-8 bg-sage-100 rounded-lg flex items-center justify-center">
-                <span className="text-sage-600 font-bold">F</span>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-800">Forældresamarbejde</h3>
-            </div>
-            <p className="text-gray-600 mb-4">
-              Forbedr kommunikationen mellem skole og hjem med AI-værktøjer.
-            </p>
-            <Link href="/ai-foraeldremoede" className="text-sage-600 hover:text-sage-700 font-medium">
-              Læs mere →
             </Link>
           </div>
         </div>

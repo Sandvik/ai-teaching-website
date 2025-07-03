@@ -44,12 +44,7 @@ export default function Layout({ children }) {
               >
                 {messages.nav.aiTeaching}
               </Link>
-              <Link 
-                href="/guide" 
-                className={`nav-link ${isActive('/guide') ? 'active' : ''}`}
-              >
-                {messages.nav.guide}
-              </Link>
+
               <Link 
                 href="/comparison" 
                 className={`nav-link ${isActive('/comparison') ? 'active' : ''}`}

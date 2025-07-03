@@ -5,21 +5,28 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:static": "BUILD_STATIC=true next build",
+    "build:static:win": "set BUILD_STATIC=true && next build",
+    "build:static:cross": "cross-env BUILD_STATIC=true next build",
     "start": "next start",
+    "start:static": "npx serve@latest out -p 3000",
     "lint": "next lint"
   },
   "dependencies": {
+    "@heroicons/react": "^2.0.18",
+    "autoprefixer": "^10.4.0",
+    "gray-matter": "^4.0.3",
     "next": "latest",
+    "postcss": "^8.4.0",
     "react": "latest",
     "react-dom": "latest",
-    "tailwindcss": "^3.4.0",
-    "autoprefixer": "^10.4.0",
-    "postcss": "^8.4.0",
-    "remark": "^14.0.0",
-    "remark-html": "^15.0.0",
     "rehype": "^13.0.0",
     "rehype-raw": "^6.1.1",
-    "gray-matter": "^4.0.3",
-    "@heroicons/react": "^2.0.18"
+    "remark": "^14.0.0",
+    "remark-html": "^15.0.0",
+    "tailwindcss": "^3.4.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3"
   }
-} 
+}
