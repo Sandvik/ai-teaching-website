@@ -62,6 +62,12 @@ export default function Layout({ children }) {
               >
                 {messages.nav.quiz}
               </Link>
+              <Link 
+                href="/ministeriet-anbefalinger" 
+                className={`nav-link ${isActive('/ministeriet-anbefalinger') ? 'active' : ''}`}
+              >
+                {messages.nav.ministeriet}
+              </Link>
             </div>
 
             {/* Language Toggle */}
@@ -114,6 +120,9 @@ export default function Layout({ children }) {
                 <li><Link href="/quiz-generator" className="hover:text-white transition-colors">
                   {messages.nav.quiz}
                 </Link></li>
+                <li><Link href="/ministeriet-anbefalinger" className="hover:text-white transition-colors">
+                  {messages.nav.ministeriet}
+                </Link></li>
               </ul>
             </div>
             <div>
@@ -143,15 +152,15 @@ export default function Layout({ children }) {
                 {locale === 'da' ? 'Har du spørgsmål eller tips?' : 'Have questions or tips?'}
               </p>
               <a 
-                href="mailto:kontakt@ai-undervisning.dk" 
+                href="mailto:info@thomassandvik.dk" 
                 className="text-sage-300 hover:text-white transition-colors"
               >
-                kontakt@ai-undervisning.dk
+                info@thomassandvik.dk
               </a>
             </div>
           </div>
           <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 AI i Undervisning. {locale === 'da' ? 'Alle rettigheder forbeholdes.' : 'All rights reserved.'}</p>
+            <p>&copy; 2024 AI i Undervisning | ai-skole.dk. {locale === 'da' ? 'Alle rettigheder forbeholdes.' : 'All rights reserved.'}</p>
           </div>
         </div>
       </footer>

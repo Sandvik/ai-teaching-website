@@ -1,11 +1,14 @@
 {
-  "siteTitle": "AI in Education & Learning",
+  "siteTitle": "AI in Education | ai-skole.dk",
+  "description": "Practical guides and tools for using AI in education and learning",
+  "aiTeaching": "AI in Teaching",
   "nav": {
     "home": "Home",
     "aiTeaching": "AI in Teaching",
     "guide": "Guide",
     "comparison": "Comparison",
     "quiz": "Quiz Generator",
+    "ministeriet": "Ministry Recommendations",
     "about": "About"
   },
   "landing": {
