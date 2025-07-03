@@ -6,8 +6,6 @@ import { useRouter } from 'next/router';
 import AdPlaceholder from './AdPlaceholder';
 import ScrollToTop from './ScrollToTop';
 import Search from './Search';
-import Breadcrumbs from './Breadcrumbs';
-import RelatedContent from './RelatedContent';
 
 export default function Layout({ children }) {
   const { locale, setLocale, messages } = useContext(LocaleContext);
@@ -39,26 +37,43 @@ export default function Layout({ children }) {
                 href="/" 
                 className={`nav-link ${isActive('/') ? 'active' : ''}`}
               >
-                {messages.nav.home}
+                Oversigt
               </Link>
               <Link 
-                href="/ai-teaching" 
-                className={`nav-link ${isActive('/ai-teaching') ? 'active' : ''}`}
+                href="/guide" 
+                className={`nav-link ${isActive('/guide') ? 'active' : ''}`}
               >
-                {messages.nav.aiTeaching}
+                Guide
               </Link>
-
+              <Link 
+                href="/prompt-library" 
+                className={`nav-link ${isActive('/prompt-library') ? 'active' : ''}`}
+              >
+                Prompts
+              </Link>
+              <Link 
+                href="/lesson-plans" 
+                className={`nav-link ${isActive('/lesson-plans') ? 'active' : ''}`}
+              >
+                Læring & Planer
+              </Link>
               <Link 
                 href="/comparison" 
                 className={`nav-link ${isActive('/comparison') ? 'active' : ''}`}
               >
-                {messages.nav.comparison}
+                Værktøjer
               </Link>
               <Link 
                 href="/quiz-generator" 
                 className={`nav-link ${isActive('/quiz-generator') ? 'active' : ''}`}
               >
-                {messages.nav.quiz}
+                Quizer
+              </Link>
+              <Link 
+                href="/faq" 
+                className={`nav-link ${isActive('/faq') ? 'active' : ''}`}
+              >
+                FAQ
               </Link>
             </div>
 
@@ -81,9 +96,7 @@ export default function Layout({ children }) {
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <AdPlaceholder />
-        <Breadcrumbs />
         {children}
-        <RelatedContent />
       </main>
 
       {/* Scroll to Top Button */}
@@ -110,8 +123,11 @@ export default function Layout({ children }) {
                 <li><Link href="/ai-teaching" className="hover:text-white transition-colors">
                   {messages.nav.aiTeaching}
                 </Link></li>
-                <li><Link href="/guide" className="hover:text-white transition-colors">
-                  {messages.nav.guide}
+                <li><Link href="/prompt-library" className="hover:text-white transition-colors">
+                  {locale === 'da' ? 'Prompt Library' : 'Prompt Library'}
+                </Link></li>
+                <li><Link href="/lesson-plans" className="hover:text-white transition-colors">
+                  {locale === 'da' ? 'Lektieplaner' : 'Lesson Plans'}
                 </Link></li>
                 <li><Link href="/comparison" className="hover:text-white transition-colors">
                   {messages.nav.comparison}

@@ -46,6 +46,48 @@ export default function Search() {
       description: locale === 'en' ? 'Create AI-generated quizzes and tests' : 'Lav AI-genererede quizzer og tests',
       url: '/quiz-generator',
       category: locale === 'en' ? 'Tool' : 'Værktøj'
+    },
+    {
+      title: locale === 'en' ? 'Prompt Library' : 'Prompt Library',
+      description: locale === 'en' ? 'Collection of tested AI prompts for teaching' : 'Samling af testede AI-prompts til undervisning',
+      url: '/prompt-library',
+      category: locale === 'en' ? 'Resource' : 'Ressource'
+    },
+    {
+      title: locale === 'en' ? 'Lesson Plans with AI' : 'Lektieplaner med AI',
+      description: locale === 'en' ? 'Complete lesson plans with AI integration' : 'Færdige lektieplaner med AI-integration',
+      url: '/lesson-plans',
+      category: locale === 'en' ? 'Resource' : 'Ressource'
+    },
+    {
+      title: locale === 'en' ? 'FAQ - Frequently Asked Questions' : 'FAQ - Ofte Stillede Spørgsmål',
+      description: locale === 'en' ? 'Answers to common questions about AI in education, GDPR, and implementation' : 'Svar på almindelige spørgsmål om AI i uddannelse, GDPR og implementering',
+      url: '/faq',
+      category: locale === 'en' ? 'Support' : 'Support'
+    },
+    {
+      title: locale === 'en' ? 'AI Policy Template for Schools' : 'AI Politik Skabelon for Skoler',
+      description: locale === 'en' ? 'Complete template for developing an AI policy with practical guidelines' : 'Komplet skabelon til at udvikle en AI politik med praktiske retningslinjer',
+      url: '/ai-policy-template',
+      category: locale === 'en' ? 'Template' : 'Skabelon'
+    },
+    {
+      title: locale === 'en' ? 'GDPR Guide for AI in Schools' : 'GDPR Guide for AI i Skolen',
+      description: locale === 'en' ? 'Complete guide to GDPR compliance when using AI tools' : 'Komplet guide til GDPR-compliance når du bruger AI-værktøjer',
+      url: '/gdpr-guide',
+      category: locale === 'en' ? 'Legal' : 'Juridisk'
+    },
+    {
+      title: locale === 'en' ? 'Ministry Recommendations' : 'Ministeriets Anbefalinger',
+      description: locale === 'en' ? 'Official recommendations for AI in Danish education' : 'Officielle anbefalinger til AI i dansk uddannelse',
+      url: '/ministeriet-anbefalinger',
+      category: locale === 'en' ? 'Official' : 'Officielt'
+    },
+    {
+      title: locale === 'en' ? 'About AI in Education' : 'Om AI i Undervisning',
+      description: locale === 'en' ? 'Learn more about our mission and approach' : 'Lær mere om vores mission og tilgang',
+      url: '/about',
+      category: locale === 'en' ? 'About' : 'Om'
     }
   ];
 

@@ -5,8 +5,11 @@
   "nav": {
     "home": "AI Overview",
     "aiTeaching": "Complete Guide",
+    "promptLibrary": "Prompt Library",
+    "lessonPlans": "Lesson Plans",
     "comparison": "AI Tools",
     "quiz": "Quizer",
+    "faq": "FAQ",
     "ministeriet": "Ministry Recommendations",
     "about": "About"
   },

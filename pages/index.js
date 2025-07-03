@@ -58,8 +58,7 @@ export default function Home() {
             AI i Undervisning
           </h1>
           <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            Opdag hvordan kunstig intelligens kan forbedre læring og undervisning. 
-            Praktiske værktøjer og guides til lærere og forældre.
+            AI kan gøre en reel forskel i undervisningen – både når det virker, og når det driller. Her finder du praktiske værktøjer og guides, udviklet med fokus på praksis og danske forhold. Målet er at give flere muligheder og lidt mere overskud i en travl hverdag – uden at erstatte den faglige dømmekraft.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/ai-teaching" className="btn-primary text-lg px-8 py-4">
@@ -73,6 +72,30 @@ export default function Home() {
             <Link href="/quiz-generator" className="text-sage-600 hover:text-sage-700 font-medium">
               {locale === 'en' ? 'Try our Quiz Generator →' : 'Prøv vores Quiz-generator →'}
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* AI Disclaimer */}
+      <section className="mb-8">
+        <div className="bg-amber-50 border-l-4 border-amber-400 p-6 rounded-lg">
+          <div className="flex items-start">
+            <div className="flex-shrink-0">
+              <svg className="h-6 w-6 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
+              </svg>
+            </div>
+            <div className="ml-3">
+              <h3 className="text-lg font-semibold text-amber-800 mb-2">
+                {locale === 'en' ? 'Important: AI is a Tool, Not a Shortcut' : 'Vigtigt: AI er et værktøj, ikke en genvej'}
+              </h3>
+              <p className="text-amber-700">
+                {locale === 'en' 
+                  ? 'AI bør støtte reel læring og udvikling af færdigheder – ikke bruges som en genvej. Brug AI som et supplement, ikke en erstatning. Eleverne skal stadig udvikle deres egne evner og forståelse. Det handler om at bruge teknologien klogt og ansvarligt.'
+                  : 'AI bør støtte reel læring og udvikling af færdigheder – ikke bruges som en genvej. Brug AI som et supplement, ikke en erstatning. Eleverne skal stadig udvikle deres egne evner og forståelse. Det handler om at bruge teknologien klogt og ansvarligt.'
+                }
+              </p>
+            </div>
           </div>
         </div>
       </section>
