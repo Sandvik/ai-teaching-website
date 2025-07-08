@@ -12,7 +12,7 @@ export default function AiForaeldremoede({ content, locale, messages }) {
   return (
     <>
       <Head>
-        <title>{messages.nav.parents} - {messages.layout.logo}</title>
+        <title>{`${messages.nav.parents} - ${messages.layout.logo}`}</title>
         <meta name="description" content={messages.home.specialized.parents.description} />
       </Head>
       <Layout>

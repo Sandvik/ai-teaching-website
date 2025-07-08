@@ -48,11 +48,11 @@ export default function Home() {
           <p className="text-xl text-gray-600 mb-8">
             {messages.hero.subtitle}
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/guide" className="btn-primary" onMouseEnter={() => preloadPage('/guide')}>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
+            <Link href="/guide" className="btn-primary text-lg px-8 py-4" onMouseEnter={() => preloadPage('/guide')}>
               {messages.hero.cta}
             </Link>
-            <Link href="/comparison" className="btn-secondary" onMouseEnter={() => preloadPage('/comparison')}>
+            <Link href="/comparison" className="btn-secondary text-lg px-8 py-4" onMouseEnter={() => preloadPage('/comparison')}>
               {messages.hero.seeTools}
             </Link>
           </div>
@@ -145,8 +145,8 @@ export default function Home() {
         <h2 className="text-3xl font-bold text-gray-800 text-center mb-8">
           {messages.home.specialized.title}
         </h2>
-        <div className="grid md:grid-cols-3 gap-6">
-          <div className="card p-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="card p-6 hover:shadow-lg transition-all duration-200">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
                 <span className="text-blue-600 font-bold">D</span>
@@ -161,7 +161,7 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="card p-6">
+          <div className="card p-6 hover:shadow-lg transition-all duration-200">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-8 h-8 bg-sage-100 rounded-lg flex items-center justify-center">
                 <span className="text-sage-600 font-bold">M</span>
@@ -176,7 +176,7 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="card p-6">
+          <div className="card p-6 hover:shadow-lg transition-all duration-200">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-8 h-8 bg-red-100 rounded-lg flex items-center justify-center">
                 <span className="text-red-600 font-bold">H</span>
@@ -191,7 +191,7 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="card p-6">
+          <div className="card p-6 hover:shadow-lg transition-all duration-200">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center">
                 <span className="text-purple-600 font-bold">L</span>
@@ -206,7 +206,7 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="card p-6">
+          <div className="card p-6 hover:shadow-lg transition-all duration-200">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
                 <span className="text-green-600 font-bold">V</span>
@@ -221,7 +221,7 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="card p-6">
+          <div className="card p-6 hover:shadow-lg transition-all duration-200">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-8 h-8 bg-sage-100 rounded-lg flex items-center justify-center">
                 <span className="text-sage-600 font-bold">I</span>
@@ -253,17 +253,17 @@ export default function Home() {
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-4">
-            <Link href="/ai-inklusion" className="bg-white rounded-lg p-4 text-center hover:shadow-md transition-shadow" onMouseEnter={() => preloadPage('/ai-inklusion')}>
+            <Link href="/ai-inklusion" className="card p-4 text-center hover:shadow-md transition-shadow" onMouseEnter={() => preloadPage('/ai-inklusion')}>
               <div className="text-blue-600 font-bold mb-2">{messages.home.danishFocus.folkeskolen.title}</div>
               <p className="text-sm text-gray-600 mb-3">{messages.home.danishFocus.folkeskolen.description}</p>
               <span className="text-sage-600 text-sm font-medium hover:text-sage-700">Læs mere →</span>
             </Link>
-            <Link href="/ai-teaching" className="bg-white rounded-lg p-4 text-center hover:shadow-md transition-shadow" onMouseEnter={() => preloadPage('/ai-teaching')}>
+            <Link href="/ai-teaching" className="card p-4 text-center hover:shadow-md transition-shadow" onMouseEnter={() => preloadPage('/ai-teaching')}>
               <div className="text-green-600 font-bold mb-2">{messages.home.danishFocus.gymnasiet.title}</div>
               <p className="text-sm text-gray-600 mb-3">{messages.home.danishFocus.gymnasiet.description}</p>
               <span className="text-sage-600 text-sm font-medium hover:text-sage-700">Læs mere →</span>
             </Link>
-            <Link href="/ai-foraeldremoede" className="bg-white rounded-lg p-4 text-center hover:shadow-md transition-shadow" onMouseEnter={() => preloadPage('/ai-foraeldremoede')}>
+            <Link href="/ai-foraeldremoede" className="card p-4 text-center hover:shadow-md transition-shadow" onMouseEnter={() => preloadPage('/ai-foraeldremoede')}>
               <div className="text-purple-600 font-bold mb-2">{messages.home.danishFocus.hjemmeundervisning.title}</div>
               <p className="text-sm text-gray-600 mb-3">{messages.home.danishFocus.hjemmeundervisning.description}</p>
               <span className="text-sage-600 text-sm font-medium hover:text-sage-700">Læs mere →</span>
@@ -288,22 +288,21 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="text-center mb-12">
-        <div className="bg-sage-50 border border-sage-200 rounded-xl p-8">
-          <HeartIcon className="h-12 w-12 text-sage-600 mx-auto mb-4" />
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">
-            {messages.home.cta.title}
-          </h2>
-          <p className="text-gray-600 mb-6">
-            {messages.home.cta.description}
-          </p>
-          <a 
-            href={`mailto:${messages.layout.email}`}
-            className="btn-primary"
-          >
-            {messages.home.cta.button}
-          </a>
+      {/* Prominent CTA Section */}
+      <section className="cta-section">
+        <h2 className="text-3xl font-bold mb-4">
+          {locale === 'en' ? 'Ready to Transform Your Teaching?' : 'Klar til at transformere din undervisning?'}
+        </h2>
+        <p className="text-xl mb-6 opacity-90">
+          {locale === 'en' ? 'Start your AI journey today with our comprehensive guides and tools.' : 'Start din AI-rejse i dag med vores omfattende guides og værktøjer.'}
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Link href="/guide" className="btn-primary" onMouseEnter={() => preloadPage('/guide')}>
+            {locale === 'en' ? 'Get Started Now' : 'Kom i gang nu'}
+          </Link>
+          <Link href="/quiz-generator" className="btn-secondary bg-white text-sage-700 hover:bg-sage-50" onMouseEnter={() => preloadPage('/quiz-generator')}>
+            {locale === 'en' ? 'Try Quiz Generator' : 'Prøv Quiz-generator'}
+          </Link>
         </div>
       </section>
     </Layout>

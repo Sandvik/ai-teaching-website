@@ -31,7 +31,7 @@ export default function AIHistorieDetailed({ content, daContent, enContent }) {
               </p>
             </div>
 
-            <div className="bg-white rounded-lg shadow-lg p-8">
+            <div className="card p-8">
               <MarkdownRenderer 
                 content={currentContent}
               />

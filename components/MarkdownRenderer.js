@@ -120,10 +120,57 @@ const restoreHtmlBlocks = (htmlStr, htmlBlocks, tableBlocks) => {
 };
 
 const addIdsToHeadings = (html) => {
-  // Add IDs to headings for navigation - match the IDs used in guide.js, comparison.js, and ai-teaching.js
+  // Add IDs to headings for navigation and visual icons
   return html.replace(
     /<h([1-6])>(.*?)<\/h([1-6])>/g,
     (match, level, content) => {
+      // Add visual icons to headings
+      const iconMap = {
+        'introduktion': '🚀',
+        'grundlæggende': '📚',
+        'praktiske': '🛠️',
+        'undervisningsstrategier': '🎨',
+        'værktøjer': '⚙️',
+        'evaluering': '📊',
+        'lektiehjælp': '🎯',
+        'etik': '🚨',
+        'fremtidige': '🔮',
+        'implementering': '📋',
+        'success': '🏆',
+        'sammenligning': '📊',
+        'anbefalinger': '🏆',
+        'pris': '💰',
+        'anmeldelser': '⭐',
+        'tips': '💡',
+        'eksempel': '📝',
+        'konklusion': '✅',
+        'forældre': '👨‍👩‍👧‍👦',
+        'dansk': '📖',
+        'matematik': '🔢',
+        'historie': '📜',
+        'naturvidenskab': '🔬',
+        'kunst': '🎨',
+        'sprog': '🗣️',
+        'sikkerhed': '🛡️',
+        'gdpr': '🔒',
+        'kommunikation': '💬',
+        'dokumentation': '📋',
+        'opfølgning': '📈'
+      };
+
+      let icon = '';
+      const lowerContent = content.toLowerCase();
+      
+      // Find matching icon
+      for (const [key, value] of Object.entries(iconMap)) {
+        if (lowerContent.includes(key)) {
+          icon = value;
+          break;
+        }
+      }
+
+      // Add icon to heading if found
+      const headingWithIcon = icon ? `${icon} ${content}` : content;
       // Check if heading already has an ID from markdown {#id} syntax
       const idMatch = content.match(/\{#([^}]+)\}$/);
       if (idMatch) {
@@ -266,10 +313,13 @@ const convertTableToHtml = (tableLines) => {
 };
 
 const enhanceTableStyling = (html) => {
-  // Enhance table styling with better classes
+  // Enhance table styling with better classes and mobile responsiveness
   return html.replace(
     /<table>/g,
-    '<table class="w-full border-collapse border border-gray-200 rounded-lg overflow-hidden shadow-sm">'
+    '<div class="table-container"><table class="w-full border-collapse border border-gray-200 rounded-lg overflow-hidden shadow-sm">'
+  ).replace(
+    /<\/table>/g,
+    '</table></div>'
   ).replace(
     /<th>/g,
     '<th class="bg-sage-600 text-white font-semibold p-3 text-left border-b border-gray-200">'

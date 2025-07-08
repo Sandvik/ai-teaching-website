@@ -97,7 +97,7 @@ export default function AITeaching({ content, daContent, enContent }) {
           {/* Table of Contents */}
           <div className="lg:col-span-1">
             <div className="sticky top-8">
-              <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+              <div className="card p-6">
                 <h3 className="text-lg font-semibold text-gray-800 mb-4">
                   {locale === 'en' ? 'Table of Contents' : 'Indholdsfortegnelse'}
                 </h3>
@@ -175,7 +175,7 @@ export default function AITeaching({ content, daContent, enContent }) {
 
           {/* Content */}
           <div className="lg:col-span-3">
-            <article className="bg-white rounded-xl shadow-sm border border-gray-200 p-8 markdown-content">
+            <article className="card p-8 markdown-content">
               <MarkdownRenderer content={currentContent} />
             </article>
           </div>
@@ -190,7 +190,7 @@ export default function AITeaching({ content, daContent, enContent }) {
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
             <Link href="/guide" className="group">
-              <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-200 hover:shadow-md transition-all duration-200 group-hover:border-sage-300">
+              <div className="card p-6 group-hover:border-sage-300">
                 <h3 className="text-lg font-semibold text-gray-800 mb-2 group-hover:text-sage-700">
                   {locale === 'en' ? 'Complete Guide' : 'Komplet guide'}
                 </h3>
@@ -201,7 +201,7 @@ export default function AITeaching({ content, daContent, enContent }) {
             </Link>
             
             <Link href="/comparison" className="group">
-              <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-200 hover:shadow-md transition-all duration-200 group-hover:border-sage-300">
+              <div className="card p-6 group-hover:border-sage-300">
                 <h3 className="text-lg font-semibold text-gray-800 mb-2 group-hover:text-sage-700">
                   {messages.aiTeaching.callouts.comparison}
                 </h3>
@@ -212,7 +212,7 @@ export default function AITeaching({ content, daContent, enContent }) {
             </Link>
 
             <Link href="/quiz-generator" className="group">
-              <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-200 hover:shadow-md transition-all duration-200 group-hover:border-sage-300">
+              <div className="card p-6 group-hover:border-sage-300">
                 <h3 className="text-lg font-semibold text-gray-800 mb-2 group-hover:text-sage-700">
                   {locale === 'en' ? 'Quiz Generator' : 'Quiz-generator'}
                 </h3>

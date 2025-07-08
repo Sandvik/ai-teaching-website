@@ -29,7 +29,6 @@ function MyApp({ Component, pageProps }) {
         <meta httpEquiv="Cache-Control" content="public, max-age=31536000, immutable" />
         
         {/* Performance hints */}
-        <link rel="preload" href="/_next/static/css/app.css" as="style" />
         <link rel="preload" href="/_next/static/chunks/main.js" as="script" />
       </Head>
       <Component {...pageProps} />

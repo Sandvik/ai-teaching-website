@@ -80,7 +80,7 @@ export default function QuizGenerator() {
         </div>
       )}
       {quiz && (
-        <form onSubmit={submitQuiz} className="bg-white rounded-xl shadow p-6 max-w-xl mx-auto mb-8">
+        <form onSubmit={submitQuiz} className="card p-6 max-w-xl mx-auto mb-8">
           <h2 className="text-lg font-semibold mb-4 text-purple-800 flex items-center gap-2"><SparklesIcon className="h-5 w-5 text-purple-400" />{quiz.topic}</h2>
           <ol className="list-decimal pl-6">
             {quiz.questions.map((q, i) => (

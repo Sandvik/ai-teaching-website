@@ -28,6 +28,77 @@ body {
   line-height: 1.7;
 }
 
+/* Add more whitespace between sections */
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3,
+.markdown-content h4 {
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.markdown-content h1:first-child,
+.markdown-content h2:first-child,
+.markdown-content h3:first-child,
+.markdown-content h4:first-child {
+  margin-top: 0;
+}
+
+.markdown-content p {
+  margin-bottom: 1.5rem;
+}
+
+.markdown-content ul,
+.markdown-content ol {
+  margin-bottom: 2rem;
+  padding-left: 1.5rem;
+}
+
+.markdown-content li {
+  margin-bottom: 0.75rem;
+}
+
+/* Add spacing around content sections */
+.markdown-content > * + * {
+  margin-top: 1.5rem;
+}
+
+/* Visual icons for content sections */
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 0;
+  border-bottom: 2px solid rgba(156, 175, 136, 0.1);
+  margin-bottom: 2rem;
+}
+
+.markdown-content h1::before,
+.markdown-content h2::before,
+.markdown-content h3::before {
+  font-size: 1.5rem;
+  opacity: 0.8;
+}
+
+/* Content section styling */
+.content-section {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  margin: 2rem 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(156, 175, 136, 0.1);
+}
+
+.content-section h2,
+.content-section h3 {
+  border-bottom: none;
+  padding: 0 0 1rem 0;
+  margin-bottom: 1.5rem;
+}
+
 .markdown-content h1 {
   font-size: 2rem;
   font-weight: 800;
@@ -155,7 +226,83 @@ body {
   border-radius: 0.5rem;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  margin: 1rem 0;
+  margin: 2rem 0;
+  font-size: 0.9rem;
+}
+
+/* Improve table responsiveness for mobile */
+@media (max-width: 768px) {
+  .markdown-content table {
+    font-size: 0.75rem;
+    margin: 1.5rem -1rem;
+    width: calc(100% + 2rem);
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    display: block;
+    white-space: nowrap;
+  }
+  
+  .markdown-content th,
+  .markdown-content td {
+    padding: 0.75rem 0.5rem;
+    word-break: break-word;
+    min-width: 80px;
+    max-width: 200px;
+    vertical-align: top;
+  }
+  
+  .markdown-content th {
+    font-size: 0.7rem;
+    font-weight: 700;
+    background-color: var(--nordic-sage);
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  
+  .markdown-content td {
+    font-size: 0.7rem;
+    border-bottom: 1px solid rgba(156, 175, 136, 0.1);
+  }
+  
+  /* Add horizontal scroll indicator */
+  .markdown-content table::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 20px;
+    background: linear-gradient(to right, transparent, rgba(0,0,0,0.1));
+    pointer-events: none;
+  }
+  
+  /* Improve table container */
+  .table-container {
+    position: relative;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: var(--nordic-sage) transparent;
+  }
+  
+  .table-container::-webkit-scrollbar {
+    height: 6px;
+  }
+  
+  .table-container::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .table-container::-webkit-scrollbar-thumb {
+    background-color: var(--nordic-sage);
+    border-radius: 3px;
+  }
+  
+  .table-container::-webkit-scrollbar-thumb:hover {
+    background-color: var(--nordic-forest);
+  }
 }
 
 .markdown-content th {
@@ -191,16 +338,54 @@ body {
   background-color: var(--nordic-sage);
   color: white;
   border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
-  font-weight: 600;
-  transition: all 0.2s;
+  padding: 1rem 2rem;
+  border-radius: 0.75rem;
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: all 0.3s;
+  box-shadow: 0 4px 12px rgba(156, 175, 136, 0.2);
+  position: relative;
+  overflow: hidden;
 }
 
 .btn-primary:hover {
   background-color: var(--nordic-forest);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(156, 175, 136, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(156, 175, 136, 0.4);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Make CTAs more prominent */
+.cta-section {
+  background: linear-gradient(135deg, var(--nordic-sage) 0%, var(--nordic-forest) 100%);
+  color: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  text-align: center;
+  margin: 3rem 0;
+  box-shadow: 0 8px 25px rgba(156, 175, 136, 0.3);
+}
+
+.cta-section h2 {
+  color: white !important;
+  margin-bottom: 1rem;
+}
+
+.cta-section .btn-primary {
+  background-color: white;
+  color: var(--nordic-forest);
+  font-weight: 700;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+}
+
+.cta-section .btn-primary:hover {
+  background-color: var(--nordic-cream);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .btn-secondary {
@@ -277,7 +462,7 @@ body {
 /* Card styles */
 .card {
   background-color: white;
-  border: 1px solid rgba(156, 175, 136, 0.2);
+  border: 1px solid rgba(156, 175, 136, 0.6);
   border-radius: 0.75rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   transition: all 0.2s;
@@ -301,6 +486,67 @@ body {
 .nav-link.active {
   color: var(--nordic-forest);
   font-weight: 600;
+}
+
+/* Mobile navigation improvements */
+@media (max-width: 768px) {
+  /* Improve touch targets */
+  .nav-link,
+  button,
+  a {
+    min-height: 44px;
+    min-width: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Mobile menu animations */
+  .mobile-menu-enter {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  
+  .mobile-menu-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 200ms, transform 200ms;
+  }
+  
+  .mobile-menu-exit {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .mobile-menu-exit-active {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 200ms, transform 200ms;
+  }
+  
+  /* Improve mobile spacing */
+  .markdown-content {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  
+  .markdown-content h1 {
+    font-size: 1.75rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .markdown-content h2 {
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .markdown-content h3 {
+    font-size: 1.25rem;
+    margin-top: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
 }
 
 /* Hero section styles */
