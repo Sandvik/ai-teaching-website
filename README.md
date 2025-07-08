@@ -17,6 +17,7 @@ En moderne Next.js hjemmeside med praktiske guides og værktøjer til brug af AI
 - **Quiz-generator** - Lav engagerende quizzer med AI-hjælp
 - **Indholdsfortegnelse** - Smooth scrolling navigation på alle sider
 - **Scroll to Top** - Hurtig navigation til toppen af siderne
+- **Avanceret Markdown Renderer** - Understøtter callouts, custom tabeller, stjerner, og HTML blocks
 
 ### 🌍 **Bilingual Support**
 - **Fuldt lokaliseret** på dansk og engelsk
@@ -33,20 +34,22 @@ En moderne Next.js hjemmeside med praktiske guides og værktøjer til brug af AI
 
 - **Framework**: Next.js 15.3.4 (Pages Router)
 - **Styling**: Tailwind CSS
-- **Content**: Markdown med custom renderer
+- **Content**: Markdown med custom renderer (`components/MarkdownRenderer.js`)
 - **Icons**: Heroicons
 - **Localization**: Custom context-based system
 - **Deployment**: Vercel-ready
+- **Ekstra**: Python scraper til indhold (se `/scraper`)
 
 ## 📁 Projektstruktur
 
 ```
-newwww/
+ai-teaching-website/
 ├── components/          # React komponenter
-│   ├── Layout.js       # Hovedlayout med navigation
-│   ├── MarkdownRenderer.js # Custom markdown renderer
-│   ├── ScrollToTop.js  # Scroll to top knap
-│   └── AdPlaceholder.js # Plads til reklamer
+│   ├── Layout.js
+│   ├── MarkdownRenderer.js # Custom markdown renderer (callouts, tabeller, stjerner, HTML)
+│   ├── ScrollToTop.js
+│   ├── Breadcrumb.js
+│   └── AdSense.js
 ├── content/            # Markdown indhold
 │   ├── da/            # Dansk indhold
 │   └── en/            # Engelsk indhold
@@ -54,17 +57,31 @@ newwww/
 │   ├── da.json        # Dansk oversættelser
 │   └── en.json        # Engelsk oversættelser
 ├── pages/             # Next.js sider
-│   ├── _app.js        # App wrapper med context
-│   ├── index.js       # Forside
-│   ├── ai-teaching.js # AI i Undervisning
-│   ├── guide.js       # Komplet guide
-│   ├── comparison.js  # AI-værktøjssammenligning
-│   └── quiz-generator.js # Quiz generator
+│   ├── _app.js
+│   ├── _document.js
+│   ├── index.js
+│   ├── ai-foraeldremoede.js
+│   ├── ai-i-dansk-fag-detailed.js
+│   ├── ai-i-historie-detailed.js
+│   ├── ai-i-matematik-detailed.js
+│   ├── ai-inklusion.js
+│   ├── ai-lovgivning.js
+│   ├── ai-teaching.js
+│   ├── ai-vaerktoejssammenligning.js
+│   ├── comparison.js
+│   ├── guide.js
+│   └── quiz-generator.js
+├── scraper/            # Python scripts til indholdsscraping
+│   ├── aiskoleScraper.py
+│   └── aiskole_content.json
 ├── styles/            # CSS styling
 │   └── globals.css    # Global styling med nordisk tema
-└── scripts/           # Start scripts
-    ├── start-prod.sh  # Linux/macOS start script
-    └── start-prod.ps1 # Windows PowerShell script
+├── start-prod.sh      # Linux/macOS start script
+├── start-prod.ps1     # Windows PowerShell script
+├── tailwind.config.js
+├── postcss.config.js
+├── next.config.js
+└── README.md
 ```
 
 ## 🚀 Kom i gang
@@ -77,8 +94,8 @@ newwww/
 
 1. **Klon repository**
 ```bash
-git clone https://github.com/dit-username/ai-undervisning.git
-cd ai-undervisning
+git clone https://github.com/dit-username/ai-teaching-website.git
+cd ai-teaching-website
 ```
 
 2. **Installer dependencies**
@@ -110,17 +127,24 @@ Gå til [http://localhost:3000](http://localhost:3000)
 
 ### Sider
 
-1. **Forside** (`/`) - Hero sektion med quick links
-2. **AI i Undervisning** (`/ai-teaching`) - Massiv guide til lærere
-3. **Guide** (`/guide`) - Komplet guide til AI-værktøjer
-4. **Sammenligning** (`/comparison`) - AI-værktøjssammenligning
-5. **Quiz Generator** (`/quiz-generator`) - Interaktiv quiz-generator
+1. **Forside** (`/`)
+2. **AI i Forældremøde** (`/ai-foraeldremoede`)
+3. **AI i Dansk (detaljeret)** (`/ai-i-dansk-fag-detailed`)
+4. **AI i Historie (detaljeret)** (`/ai-i-historie-detailed`)
+5. **AI i Matematik (detaljeret)** (`/ai-i-matematik-detailed`)
+6. **AI Inklusion** (`/ai-inklusion`)
+7. **AI Lovgivning** (`/ai-lovgivning`)
+8. **AI i Undervisning** (`/ai-teaching`)
+9. **AI Værktøjssammenligning** (`/ai-vaerktoejssammenligning`)
+10. **Sammenligning** (`/comparison`)
+11. **Guide** (`/guide`)
+12. **Quiz Generator** (`/quiz-generator`)
 
 ### Indholdstyper
 
 - **Praktiske guides** med konkrete eksempler
 - **Prompt templates** til forskellige fag
-- **Værktøjssammenligninger** med ratings
+- **Værktøjssammenligninger** med ratings og stjerner
 - **Interaktive quizzer** med feedback
 - **Case studies** og success stories
 
