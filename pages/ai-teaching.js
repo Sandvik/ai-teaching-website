@@ -235,8 +235,8 @@ export default function AITeaching({ content, daContent, enContent }) {
             {messages.aiTeaching.callouts.cta}
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <a href="mailto:info@ai-skole.dk" className="btn-primary">
-              {locale === 'en' ? 'Get Started Today' : 'Kom i gang i dag'}
+            <a href={`mailto:${messages.layout.email}`} className="btn-primary">
+              {messages.aiTeaching.callouts.getStartedButton}
             </a>
             <Link href="/guide" className="btn-secondary">
               {locale === 'en' ? 'View Complete Guide' : 'Se komplet guide'}

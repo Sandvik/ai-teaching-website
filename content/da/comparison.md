@@ -1,4 +1,100 @@
-# Sammenligning: AI-værktøjer til undervisning
+# 🏆 AI-værktøjssammenligning: Komplet Guide til Dansk Skole
+
+> **💡 Hurtig oversigt:** Få overblik over de bedste AI-værktøjer til dansk skole, deres styrker, svagheder og anvendelsesområder. Brug vores detaljerede sammenligning til at vælge de rette værktøjer til jeres behov.
+
+---
+
+## 📋 Indholdsfortegnelse
+
+<div style="display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0;">
+
+<a href="#top-10-ai-værktøjer-til-undervisning" style="
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+">🏆 Top 10 AI-værktøjer</a>
+
+<a href="#fag-specifikke-ai-værktøjer" style="
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(240, 147, 251, 0.3);
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+">📚 Fag-specifikke værktøjer</a>
+
+<a href="#anvendelsesområder" style="
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(79, 172, 254, 0.3);
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+">🎯 Anvendelsesområder</a>
+
+<a href="#pris-sammenligning" style="
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(67, 233, 123, 0.3);
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+">💰 Pris-sammenligning</a>
+
+<a href="#anbefalinger-efter-behov" style="
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(250, 112, 154, 0.3);
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+">🏆 Anbefalinger</a>
+
+<a href="#detaljerede-anmeldelser" style="
+    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    color: #333;
+    padding: 12px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(168, 237, 234, 0.3);
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+">📊 Detaljerede anmeldelser</a>
+
+</div>
+
+---
 
 ## 🏆 Top 10 AI-værktøjer til undervisning
 

@@ -5,12 +5,18 @@
     "aiTeaching": "AI in Teaching",
     "guide": "Guide",
     "comparison": "Comparison",
-    "quiz": "Quiz Generator"
+    "quiz": "Quiz Generator",
+    "aiDanishDetailed": "AI in Danish (detailed)",
+    "aiMathDetailed": "AI in Mathematics (detailed)",
+    "aiHistoryDetailed": "AI in History (detailed)",
+    "aiLaw": "AI and Law",
+    "aiToolsComparison": "AI Tools Comparison"
   },
-  "layout": {
-    "logo": "AI-Skole - AI in Education and Learning",
-    "languageToggle": "DA",
-    "footer": {
+      "layout": {
+      "logo": "AI-Skole - AI in Education and Learning",
+      "languageToggle": "DA",
+      "email": "info@ai-skole.dk",
+      "footer": {
       "description": "Practical guides and tools for using AI in education and learning.",
       "resources": "Resources",
       "contact": "Contact",
@@ -36,6 +42,22 @@
     "tryAgain": "Try again – AI can be tricky!",
     "newQuiz": "New quiz",
     "readGuide": "Read guide about AI in quizzes",
+    "topics": {
+      "aiTeaching": "AI in Teaching",
+      "mathematics": "Mathematics",
+      "aiEthics": "AI and Ethics",
+      "aiTeachingEn": "AI in Teaching",
+      "mathematicsEn": "Mathematics",
+      "aiEthicsEn": "AI and Ethics"
+    },
+    "ui": {
+      "generating": "Generating...",
+      "seeResult": "See result",
+      "youGot": "You got {correct} out of {total} correct!",
+      "generatingEn": "Generating...",
+      "seeResultEn": "See result",
+      "youGotEn": "You got {correct} out of {total} correct!"
+    },
     "questions": [
       {
         "question": "Which AI tool is best for generating quizzes?",
@@ -212,9 +234,25 @@
     },
     "specialized": {
       "title": "Specialized guides",
+      "danish": {
+        "title": "AI in Danish (detailed)",
+        "description": "Practical strategies and activities for using AI in Danish language teaching."
+      },
       "math": {
-        "title": "AI in Mathematics",
-        "description": "Discover the best AI tools for mathematics teaching and home support."
+        "title": "AI in Mathematics (detailed)",
+        "description": "Practical strategies and activities for using AI in mathematics teaching."
+      },
+      "history": {
+        "title": "AI in History (detailed)",
+        "description": "Practical strategies and activities for using AI in history teaching."
+      },
+      "law": {
+        "title": "AI and Law",
+        "description": "How to use AI legally, ethically and in compliance with GDPR and EU AI regulations."
+      },
+      "toolsComparison": {
+        "title": "AI Tools Comparison",
+        "description": "A detailed comparison of the most popular AI tools for teaching."
       },
       "inclusion": {
         "title": "Inclusion & Differentiation",
@@ -230,6 +268,22 @@
       "title": "Interactive Tools",
       "description": "Try our AI-powered quiz generator and get inspiration for your own activities.",
       "button": "Try quiz generator"
+    },
+    "danishFocus": {
+      "title": "Specifically for Danish Education",
+      "description": "AI tools and strategies adapted to Danish primary school and high school",
+      "folkeskolen": {
+        "title": "Primary School",
+        "description": "AI for children and young people 6-16 years"
+      },
+      "gymnasiet": {
+        "title": "High School",
+        "description": "Advanced AI tools for young adults"
+      },
+      "hjemmeundervisning": {
+        "title": "Home Education",
+        "description": "AI support for parents and students"
+      }
     },
     "cta": {
       "title": "Share your experience",

@@ -5,11 +5,17 @@
     "aiTeaching": "AI i Undervisning",
     "guide": "Guide",
     "comparison": "Sammenligning",
-    "quiz": "Quiz Generator"
+    "quiz": "Quiz Generator",
+    "aiDanishDetailed": "AI i Dansk Fag (detaljeret)",
+    "aiMathDetailed": "AI i Matematik (detaljeret)",
+    "aiHistoryDetailed": "AI i Historie (detaljeret)",
+    "aiLaw": "AI og Lovgivning",
+    "aiToolsComparison": "AI-værktøjssammenligning"
   },
   "layout": {
     "logo": "AI-Skole - AI i Undervisning og Læring",
     "languageToggle": "EN",
+    "email": "info@ai-skole.dk",
     "footer": {
       "description": "Praktiske guides og værktøjer til brug af AI i undervisning og læring.",
       "resources": "Ressourcer",
@@ -36,6 +42,22 @@
     "tryAgain": "Prøv igen – AI kan være tricky!",
     "newQuiz": "Ny quiz",
     "readGuide": "Læs guide om AI i quizzer",
+    "topics": {
+      "aiTeaching": "AI i undervisning",
+      "mathematics": "Matematik",
+      "aiEthics": "AI og etik",
+      "aiTeachingEn": "AI in Teaching",
+      "mathematicsEn": "Mathematics",
+      "aiEthicsEn": "AI and Ethics"
+    },
+    "ui": {
+      "generating": "Genererer…",
+      "seeResult": "Se resultat",
+      "youGot": "Du fik {correct} ud af {total} rigtige!",
+      "generatingEn": "Generating...",
+      "seeResultEn": "See result",
+      "youGotEn": "You got {correct} out of {total} correct!"
+    },
     "questions": [
       {
         "question": "Hvilket AI-værktøj er bedst til at generere quizzer?",
@@ -127,9 +149,25 @@
     },
     "specialized": {
       "title": "Specialiserede guides",
+      "danish": {
+        "title": "AI i Dansk Fag (detaljeret)",
+        "description": "Praktiske strategier og aktiviteter til at bruge AI i danskundervisningen."
+      },
       "math": {
-        "title": "AI i Matematik",
-        "description": "Opdag de bedste AI-værktøjer til matematikundervisning og hjemmestøtte."
+        "title": "AI i Matematik (detaljeret)",
+        "description": "Praktiske strategier og aktiviteter til at bruge AI i matematikundervisningen."
+      },
+      "history": {
+        "title": "AI i Historie (detaljeret)",
+        "description": "Praktiske strategier og aktiviteter til at bruge AI i historieundervisningen."
+      },
+      "law": {
+        "title": "AI og Lovgivning",
+        "description": "Sådan bruger du AI lovligt, etisk og i overensstemmelse med GDPR og EU's AI-forordning."
+      },
+      "toolsComparison": {
+        "title": "AI-værktøjssammenligning",
+        "description": "En detaljeret sammenligning af de mest populære AI-værktøjer til undervisning."
       },
       "inclusion": {
         "title": "Inklusion & Differentiering",
@@ -145,6 +183,22 @@
       "title": "Interaktive Værktøjer",
       "description": "Prøv vores AI-drevne quiz-generator og få inspiration til dine egne aktiviteter.",
       "button": "Prøv quiz-generator"
+    },
+    "danishFocus": {
+      "title": "Specifikt for Dansk Undervisning",
+      "description": "AI-værktøjer og strategier tilpasset dansk folkeskole og gymnasium",
+      "folkeskolen": {
+        "title": "Folkeskolen",
+        "description": "AI til børn og unge 6-16 år"
+      },
+      "gymnasiet": {
+        "title": "Gymnasiet",
+        "description": "Avancerede AI-værktøjer til unge voksne"
+      },
+      "hjemmeundervisning": {
+        "title": "Hjemmeundervisning",
+        "description": "AI-støtte til forældre og elever"
+      }
     },
     "cta": {
       "title": "Del din erfaring",
@@ -193,7 +247,8 @@
       "comparison": "AI-værktøjssammenligning",
       "comparisonDescription": "Sammenlign forskellige AI-værktøjer og find det bedste til dine behov.",
       "quizGenerator": "Lav engagerende quizzer og tests med AI-hjælp.",
-      "cta": "Start din AI-undervisningsrejse i dag og opdag de uendelige muligheder for at forbedre elevlæring."
+      "cta": "Start din AI-undervisningsrejse i dag og opdag de uendelige muligheder for at forbedre elevlæring.",
+      "getStartedButton": "Kom i gang i dag"
     }
   },
   "guide": {

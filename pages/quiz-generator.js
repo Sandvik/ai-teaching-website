@@ -7,15 +7,15 @@ import Head from 'next/head';
 function getQuizData(messages, locale) {
   return [
     {
-      topic: locale === 'en' ? 'AI in Teaching' : 'AI i undervisning',
+      topic: locale === 'en' ? messages.quiz.topics.aiTeachingEn : messages.quiz.topics.aiTeaching,
       questions: messages.quiz.questions.slice(0, 3)
     },
     {
-      topic: locale === 'en' ? 'Mathematics' : 'Matematik',
+      topic: locale === 'en' ? messages.quiz.topics.mathematicsEn : messages.quiz.topics.mathematics,
       questions: messages.quiz.questions.slice(3, 6)
     },
     {
-      topic: locale === 'en' ? 'AI and Ethics' : 'AI og etik',
+      topic: locale === 'en' ? messages.quiz.topics.aiEthicsEn : messages.quiz.topics.aiEthics,
       questions: messages.quiz.questions.slice(6, 8)
     }
   ];
@@ -75,7 +75,7 @@ export default function QuizGenerator() {
       {!quiz && (
         <div className="max-w-xl mx-auto text-center mb-8">
           <button onClick={startQuiz} className="bg-purple-600 text-white px-8 py-3 rounded-full shadow hover:bg-purple-700 transition text-lg font-semibold" disabled={loading}>
-            {loading ? (locale === 'en' ? 'Generating...' : 'Genererer…') : messages.quiz.start}
+            {loading ? (locale === 'en' ? messages.quiz.ui.generatingEn : messages.quiz.ui.generating) : messages.quiz.start}
           </button>
         </div>
       )}
@@ -96,15 +96,15 @@ export default function QuizGenerator() {
           </ol>
           {!showResult && (
             <button type="submit" className="bg-purple-600 text-white px-6 py-2 rounded-full shadow hover:bg-purple-700 transition mt-4" disabled={userAnswers.includes(null)}>
-              {locale === 'en' ? 'See result' : 'Se resultat'}
+              {locale === 'en' ? messages.quiz.ui.seeResultEn : messages.quiz.ui.seeResult}
             </button>
           )}
           {showResult && (
             <div className="mt-6 text-center">
               <div className="text-xl font-bold text-purple-700 mb-2">
                 {locale === 'en' 
-                  ? `You got ${correctCount} out of ${quiz.questions.length} correct!`
-                  : `Du fik ${correctCount} ud af ${quiz.questions.length} rigtige!`
+                  ? messages.quiz.ui.youGotEn.replace('{correct}', correctCount).replace('{total}', quiz.questions.length)
+                  : messages.quiz.ui.youGot.replace('{correct}', correctCount).replace('{total}', quiz.questions.length)
                 }
               </div>
               {correctCount === quiz.questions.length ? (

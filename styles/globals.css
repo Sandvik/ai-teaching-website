@@ -199,22 +199,62 @@ body {
 
 .btn-primary:hover {
   background-color: var(--nordic-forest);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(156, 175, 136, 0.3);
 }
 
-.btn-secondary {
-  background-color: transparent;
-  color: var(--nordic-sage);
-  border: 2px solid var(--nordic-sage);
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
+/* Navigation button styles for guides */
+.markdown-content div[style*="display: flex"] {
+  margin: 2rem 0;
+}
+
+.markdown-content div[style*="display: flex"] a {
+  text-decoration: none !important;
+  transition: all 0.3s ease !important;
+  transform: translateY(0);
+}
+
+.markdown-content div[style*="display: flex"] a:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Ensure navigation buttons are responsive */
+@media (max-width: 768px) {
+  .markdown-content div[style*="display: flex"] {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .markdown-content div[style*="display: flex"] a {
+    text-align: center;
+    font-size: 12px !important;
+    padding: 10px 16px !important;
+  }
+}
+
+/* Navigation button styles */
+.markdown-content a[href^="#"] {
+  display: inline-block;
+  text-decoration: none;
   font-weight: 600;
-  transition: all 0.2s;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
 }
 
-.btn-secondary:hover {
-  background-color: var(--nordic-sage);
-  color: white;
+.markdown-content a[href^="#"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Ensure navigation container displays properly */
+.markdown-content div[style*="display: flex"] {
+  display: flex !important;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0;
 }
 
 /* Card styles */

@@ -1,4 +1,100 @@
-# Comparison: AI Tools for Education
+# 🏆 AI Tools Comparison: Complete Guide for Danish Schools
+
+> **💡 Quick overview:** Get an overview of the best AI tools for Danish schools, their strengths, weaknesses and applications. Use our detailed comparison to choose the right tools for your needs.
+
+---
+
+## 📋 Table of Contents
+
+<div style="display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0;">
+
+<a href="#top-10-ai-tools-for-education" style="
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+">🏆 Top 10 AI Tools</a>
+
+<a href="#subject-specific-ai-tools" style="
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(240, 147, 251, 0.3);
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+">📚 Subject-Specific Tools</a>
+
+<a href="#application-areas" style="
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(79, 172, 254, 0.3);
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+">🎯 Application Areas</a>
+
+<a href="#price-comparison" style="
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(67, 233, 123, 0.3);
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+">💰 Price Comparison</a>
+
+<a href="#recommendations-by-need" style="
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(250, 112, 154, 0.3);
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+">🏆 Recommendations</a>
+
+<a href="#detailed-reviews" style="
+    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    color: #333;
+    padding: 12px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(168, 237, 234, 0.3);
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+">📊 Detailed Reviews</a>
+
+</div>
+
+---
 
 ## 🏆 Top 10 AI Tools for Education
 

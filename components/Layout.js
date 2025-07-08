@@ -98,10 +98,10 @@ export default function Layout({ children }) {
                 {messages.layout.footer.contactText}
               </p>
               <a 
-                href="mailto:info@ai-skole.dk" 
-                className="text-sage-300 hover:text-white transition-colors"
+                href={`mailto:${messages.layout.email}`}
+                className="text-sage-600 hover:text-sage-700"
               >
-                info@ai-skole.dk
+                {messages.layout.email}
               </a>
             </div>
           </div>

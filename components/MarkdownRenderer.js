@@ -16,6 +16,109 @@ function calloutHtml(text) {
   return null;
 }
 
+function processHtmlInMarkdown(content) {
+  // Replace HTML content with placeholders before markdown processing
+  const htmlBlocks = [];
+  let htmlIndex = 0;
+  
+  // Find and replace HTML blocks with placeholders - improved regex
+  content = content.replace(/<div[^>]*>[\s\S]*?<\/div>/g, (match) => {
+    const placeholder = `HTML_BLOCK_${htmlIndex}_PLACEHOLDER`;
+    htmlBlocks[htmlIndex] = match;
+    htmlIndex++;
+    return placeholder;
+  });
+  
+  return { content, htmlBlocks };
+}
+
+function processMarkdownTables(content) {
+  // Process markdown tables and replace with placeholders
+  console.log('Processing markdown tables...');
+  
+  const tableBlocks = [];
+  let tableIndex = 0;
+  
+  const lines = content.split('\n');
+  const result = [];
+  let i = 0;
+  
+  while (i < lines.length) {
+    const line = lines[i];
+    
+    // Check if this line looks like a table header (starts and ends with |)
+    if (line.trim().startsWith('|') && line.trim().endsWith('|')) {
+      console.log('Found potential table header:', line);
+      
+      // Check if next line is a separator
+      if (i + 1 < lines.length && lines[i + 1].trim().match(/^\|[\s\-:|]+\|$/)) {
+        console.log('Found table separator:', lines[i + 1]);
+        
+        // Collect all table rows
+        const tableLines = [line];
+        let j = i + 1;
+        
+        // Add separator
+        tableLines.push(lines[j]);
+        j++;
+        
+        // Add data rows
+        while (j < lines.length && lines[j].trim().startsWith('|') && lines[j].trim().endsWith('|')) {
+          tableLines.push(lines[j]);
+          j++;
+        }
+        
+        console.log('Table lines found:', tableLines.length);
+        
+        // Convert table to HTML and store as placeholder
+        const htmlTable = convertTableToHtml(tableLines);
+        const placeholder = `TABLE_BLOCK_${tableIndex}_PLACEHOLDER`;
+        tableBlocks[tableIndex] = htmlTable;
+        tableIndex++;
+        
+        result.push(placeholder);
+        i = j; // Skip to after the table
+        continue;
+      }
+    }
+    
+    result.push(line);
+    i++;
+  }
+  
+  return { content: result.join('\n'), tableBlocks };
+}
+
+function restoreHtmlBlocks(htmlStr, htmlBlocks, tableBlocks) {
+  // Restore HTML blocks from placeholders - improved restoration
+  htmlBlocks.forEach((block, index) => {
+    const placeholder = `HTML_BLOCK_${index}_PLACEHOLDER`;
+    console.log(`Looking for placeholder: ${placeholder}`);
+    console.log(`Replacing with block length: ${block.length}`);
+    
+    // Use global replace to handle multiple occurrences
+    const newHtmlStr = htmlStr.replace(new RegExp(placeholder, 'g'), block);
+    console.log(`Replacement made: ${htmlStr.length !== newHtmlStr.length}`);
+    htmlStr = newHtmlStr;
+  });
+  
+  // Restore table blocks from placeholders
+  if (tableBlocks) {
+    tableBlocks.forEach((block, index) => {
+      const placeholder = `TABLE_BLOCK_${index}_PLACEHOLDER`;
+      console.log(`Looking for table placeholder: ${placeholder}`);
+      console.log(`Replacing with table block length: ${block.length}`);
+      
+      // Use global replace to handle multiple occurrences
+      const newHtmlStr = htmlStr.replace(new RegExp(placeholder, 'g'), block);
+      console.log(`Table replacement made: ${htmlStr.length !== newHtmlStr.length}`);
+      htmlStr = newHtmlStr;
+    });
+  }
+  
+  return htmlStr;
+}
+
 function addIdsToHeadings(html) {
   // Add IDs to headings for navigation - match the IDs used in guide.js, comparison.js, and ai-teaching.js
   return html.replace(
@@ -98,6 +201,7 @@ function addIdsToHeadings(html) {
           .replace(/^-|-$/g, '');
       }
       
+      console.log(`Generated ID for heading "${content}": ${id}`);
       return `<h${level} id="${id}">${content}</h${level}>`;
     }
   );
@@ -120,6 +224,46 @@ function convertStarsToIcons(html) {
       return `<span class="flex items-center gap-1">${stars.join('')} <span class="text-sm text-gray-600 ml-1">${starCount}.0</span></span>`;
     }
   );
+}
+
+function convertTableToHtml(tableLines) {
+  if (tableLines.length < 3) return tableLines.join('\n');
+  
+  const headerRow = tableLines[0];
+  const separatorRow = tableLines[1];
+  const dataRows = tableLines.slice(2);
+  
+  // Parse header
+  const headers = headerRow.split('|').slice(1, -1).map(h => h.trim().replace(/\*\*/g, ''));
+  
+  // Parse data rows
+  const rows = dataRows.map(row => 
+    row.split('|').slice(1, -1).map(cell => cell.trim().replace(/\*\*/g, ''))
+  );
+  
+  // Build HTML table
+  let htmlTable = '<table class="w-full border-collapse border border-gray-200 rounded-lg overflow-hidden shadow-sm">';
+  
+  // Header
+  htmlTable += '<thead><tr>';
+  headers.forEach(header => {
+    htmlTable += `<th class="bg-sage-600 text-white font-semibold p-3 text-left border-b border-gray-200">${header}</th>`;
+  });
+  htmlTable += '</tr></thead>';
+  
+  // Body
+  htmlTable += '<tbody>';
+  rows.forEach(row => {
+    htmlTable += '<tr class="hover:bg-sage-50 transition-colors">';
+    row.forEach(cell => {
+      htmlTable += `<td class="p-3 border-b border-gray-100">${cell}</td>`;
+    });
+    htmlTable += '</tr>';
+  });
+  htmlTable += '</tbody></table>';
+  
+  console.log('Generated HTML table for:', headers.join(', '));
+  return htmlTable;
 }
 
 function enhanceTableStyling(html) {
@@ -151,14 +295,39 @@ export default function MarkdownRenderer({ content }) {
       });
     };
     
-    remark().use(html).process(content).then((file) => {
-      let htmlStr = String(file);
-      htmlStr = blockquoteReplacer(htmlStr);
-      htmlStr = addIdsToHeadings(htmlStr);
-      htmlStr = convertStarsToIcons(htmlStr);
-      htmlStr = enhanceTableStyling(htmlStr);
-      setHtmlContent(htmlStr);
-    });
+    // Process HTML content first
+    const { content: processedContent, htmlBlocks } = processHtmlInMarkdown(content);
+    console.log('HTML blocks found:', htmlBlocks.length);
+    console.log('Processed content length:', processedContent.length);
+    
+    // Process markdown tables and get placeholders
+    const { content: contentWithTables, tableBlocks } = processMarkdownTables(processedContent);
+    console.log('Table blocks found:', tableBlocks.length);
+    
+    // First process markdown to HTML
+    remark()
+      .use(html)
+      .process(contentWithTables)
+      .then((file) => {
+        let htmlStr = String(file);
+        console.log('Initial HTML length:', htmlStr.length);
+        console.log('Looking for placeholder in HTML:', htmlStr.includes('HTML_BLOCK_0_PLACEHOLDER'));
+        console.log('Looking for table placeholder in HTML:', htmlStr.includes('TABLE_BLOCK_0_PLACEHOLDER'));
+        
+        // Restore HTML blocks and tables
+        htmlStr = restoreHtmlBlocks(htmlStr, htmlBlocks, tableBlocks);
+        console.log('After HTML restoration length:', htmlStr.length);
+        
+        htmlStr = blockquoteReplacer(htmlStr);
+        htmlStr = addIdsToHeadings(htmlStr);
+        htmlStr = convertStarsToIcons(htmlStr);
+        htmlStr = enhanceTableStyling(htmlStr);
+        setHtmlContent(htmlStr);
+      })
+      .catch((error) => {
+        console.error('Error processing markdown:', error);
+        setHtmlContent('<p>Error loading content</p>');
+      });
   }, [content]);
   
   return <div className="markdown-content" dangerouslySetInnerHTML={{ __html: htmlContent }} />;

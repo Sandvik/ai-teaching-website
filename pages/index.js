@@ -24,12 +24,12 @@ export default function Home() {
       </Head>
       <Layout>
       {/* Hero Section */}
-      <section className="hero-gradient rounded-xl shadow-lg py-16 px-8 mb-12 text-center">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-5xl font-extrabold text-gray-800 mb-6">
+      <section className="text-center py-16 bg-gradient-to-br from-sage-50 to-blue-50 rounded-xl mb-12">
+        <div className="max-w-3xl mx-auto">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             {messages.hero.title}
           </h1>
-          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 mb-8">
             {messages.hero.subtitle}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -132,6 +132,21 @@ export default function Home() {
         <div className="grid md:grid-cols-3 gap-6">
           <div className="card p-6">
             <div className="flex items-center gap-3 mb-4">
+              <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
+                <span className="text-blue-600 font-bold">D</span>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-800">{messages.home.specialized.danish.title}</h3>
+            </div>
+            <p className="text-gray-600 mb-4">
+              {messages.home.specialized.danish.description}
+            </p>
+            <Link href="/ai-i-dansk-fag-detailed" className="text-sage-600 hover:text-sage-700 font-medium">
+              {messages.home.specialized.readMore}
+            </Link>
+          </div>
+
+          <div className="card p-6">
+            <div className="flex items-center gap-3 mb-4">
               <div className="w-8 h-8 bg-sage-100 rounded-lg flex items-center justify-center">
                 <span className="text-sage-600 font-bold">M</span>
               </div>
@@ -140,7 +155,52 @@ export default function Home() {
             <p className="text-gray-600 mb-4">
               {messages.home.specialized.math.description}
             </p>
-            <Link href="/ai-matematik" className="text-sage-600 hover:text-sage-700 font-medium">
+            <Link href="/ai-i-matematik-detailed" className="text-sage-600 hover:text-sage-700 font-medium">
+              {messages.home.specialized.readMore}
+            </Link>
+          </div>
+
+          <div className="card p-6">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-8 h-8 bg-red-100 rounded-lg flex items-center justify-center">
+                <span className="text-red-600 font-bold">H</span>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-800">{messages.home.specialized.history.title}</h3>
+            </div>
+            <p className="text-gray-600 mb-4">
+              {messages.home.specialized.history.description}
+            </p>
+            <Link href="/ai-i-historie-detailed" className="text-sage-600 hover:text-sage-700 font-medium">
+              {messages.home.specialized.readMore}
+            </Link>
+          </div>
+
+          <div className="card p-6">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center">
+                <span className="text-purple-600 font-bold">L</span>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-800">{messages.home.specialized.law.title}</h3>
+            </div>
+            <p className="text-gray-600 mb-4">
+              {messages.home.specialized.law.description}
+            </p>
+            <Link href="/ai-lovgivning" className="text-sage-600 hover:text-sage-700 font-medium">
+              {messages.home.specialized.readMore}
+            </Link>
+          </div>
+
+          <div className="card p-6">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
+                <span className="text-green-600 font-bold">V</span>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-800">{messages.home.specialized.toolsComparison.title}</h3>
+            </div>
+            <p className="text-gray-600 mb-4">
+              {messages.home.specialized.toolsComparison.description}
+            </p>
+            <Link href="/ai-vaerktoejssammenligning" className="text-sage-600 hover:text-sage-700 font-medium">
               {messages.home.specialized.readMore}
             </Link>
           </div>
@@ -159,20 +219,36 @@ export default function Home() {
               {messages.home.specialized.readMore}
             </Link>
           </div>
+        </div>
+      </section>
 
-          <div className="card p-6">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-8 bg-sage-100 rounded-lg flex items-center justify-center">
-                <span className="text-sage-600 font-bold">F</span>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-800">{messages.home.specialized.parents.title}</h3>
+      {/* Danish Education Focus */}
+      <section className="mb-12">
+        <div className="bg-gradient-to-r from-blue-50 to-green-50 border border-blue-200 rounded-xl p-8">
+          <div className="text-center mb-6">
+            <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span className="text-2xl">🇩🇰</span>
             </div>
-            <p className="text-gray-600 mb-4">
-              {messages.home.specialized.parents.description}
+            <h2 className="text-2xl font-bold text-gray-800 mb-2">
+              {messages.home.danishFocus.title}
+            </h2>
+            <p className="text-gray-600">
+              {messages.home.danishFocus.description}
             </p>
-            <Link href="/ai-foraeldremoede" className="text-sage-600 hover:text-sage-700 font-medium">
-              {messages.home.specialized.readMore}
-            </Link>
+          </div>
+          <div className="grid md:grid-cols-3 gap-4">
+            <div className="bg-white rounded-lg p-4 text-center">
+              <div className="text-blue-600 font-bold mb-2">{messages.home.danishFocus.folkeskolen.title}</div>
+              <p className="text-sm text-gray-600">{messages.home.danishFocus.folkeskolen.description}</p>
+            </div>
+            <div className="bg-white rounded-lg p-4 text-center">
+              <div className="text-green-600 font-bold mb-2">{messages.home.danishFocus.gymnasiet.title}</div>
+              <p className="text-sm text-gray-600">{messages.home.danishFocus.gymnasiet.description}</p>
+            </div>
+            <div className="bg-white rounded-lg p-4 text-center">
+              <div className="text-purple-600 font-bold mb-2">{messages.home.danishFocus.hjemmeundervisning.title}</div>
+              <p className="text-sm text-gray-600">{messages.home.danishFocus.hjemmeundervisning.description}</p>
+            </div>
           </div>
         </div>
       </section>
@@ -204,7 +280,7 @@ export default function Home() {
             {messages.home.cta.description}
           </p>
           <a 
-            href="mailto:info@ai-skole.dk" 
+            href={`mailto:${messages.layout.email}`}
             className="btn-primary"
           >
             {messages.home.cta.button}

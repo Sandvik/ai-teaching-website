@@ -211,7 +211,7 @@ export default function Comparison({ content, table, daContent, enContent }) {
           <p className="text-gray-600 mb-6">
             {messages.comparison.callouts.getAdvice}
           </p>
-                      <a href="mailto:info@ai-skole.dk" className="btn-primary">
+                      <a href={`mailto:${messages.layout.email}`} className="btn-primary">
               {messages.comparison.callouts.getAdviceButton}
             </a>
         </div>

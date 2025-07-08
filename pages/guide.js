@@ -187,7 +187,7 @@ export default function Guide({ content, daContent, enContent }) {
           <p className="text-gray-600 mb-6">
             {messages.guide.callouts.needHelpDescription}
           </p>
-          <a href="mailto:info@ai-skole.dk" className="btn-primary">
+          <a href={`mailto:${messages.layout.email}`} className="btn-primary">
             {messages.guide.callouts.contactUs}
           </a>
         </div>
