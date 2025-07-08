@@ -6,6 +6,7 @@ import { useContext } from 'react';
 import { LocaleContext } from './_app';
 import fs from 'fs';
 import path from 'path';
+import Image from 'next/image';
 
 export default function AILovgivning({ content, daContent, enContent }) {
   const { messages, locale } = useContext(LocaleContext);
@@ -20,6 +21,10 @@ export default function AILovgivning({ content, daContent, enContent }) {
         <meta name="description" content={messages.home.specialized.law.description} />
       </Head>
       <Layout>
+        {/* Header Image */}
+        <div className="max-w-4xl mx-auto mb-8 rounded-2xl overflow-hidden">
+          <Image src="/images/ai-law-header.jpg" alt="Law" width={1200} height={320} className="object-cover w-full h-48 md:h-64" priority />
+        </div>
         <div className="container mx-auto px-4 py-8">
           <div className="max-w-4xl mx-auto">
             <div className="mb-8">

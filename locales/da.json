@@ -151,6 +151,10 @@
     },
     "specialized": {
       "title": "Specialiserede guides",
+      "guides": {
+        "title": "Guides",
+        "description": "Find alle vores AI-undervisningsguides samlet ét sted."
+      },
       "danish": {
         "title": "AI i Dansk Fag (detaljeret)",
         "description": "Praktiske strategier og aktiviteter til at bruge AI i danskundervisningen."

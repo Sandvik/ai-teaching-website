@@ -3,6 +3,7 @@ import { useContext, useState } from 'react';
 import { LocaleContext } from './_app';
 import { SparklesIcon } from '@heroicons/react/24/outline';
 import Head from 'next/head';
+import Image from 'next/image';
 
 function getQuizData(messages, locale) {
   return [
@@ -65,6 +66,10 @@ export default function QuizGenerator() {
         <meta name="description" content={messages.quiz.description} />
       </Head>
       <Layout>
+      {/* Banner Image */}
+      <div className="max-w-2xl mx-auto mb-8 rounded-2xl overflow-hidden">
+        <Image src="/images/quiz-banner.jpg" alt="Quiz Banner" width={800} height={200} className="object-cover w-full h-40 md:h-56" priority />
+      </div>
       <section className="bg-gradient-to-br from-purple-50 to-indigo-100 rounded-xl shadow-lg py-8 px-4 mb-8 flex items-center gap-4">
         <SparklesIcon className="h-14 w-14 text-purple-500 flex-shrink-0" />
         <div>

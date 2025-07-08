@@ -81,19 +81,16 @@ export default function Home() {
             <h3 className="text-lg font-semibold text-gray-800 mb-2">{messages.features.feature1.title}</h3>
             <p className="text-gray-600">{messages.features.feature1.description}</p>
           </div>
-          
           <div className="card p-6 text-center">
             <UserGroupIcon className="h-12 w-12 text-sage-600 mx-auto mb-4" />
             <h3 className="text-lg font-semibold text-gray-800 mb-2">{messages.features.feature2.title}</h3>
             <p className="text-gray-600">{messages.features.feature2.description}</p>
           </div>
-          
           <div className="card p-6 text-center">
             <LightBulbIcon className="h-12 w-12 text-sage-600 mx-auto mb-4" />
             <h3 className="text-lg font-semibold text-gray-800 mb-2">{messages.features.feature3.title}</h3>
             <p className="text-gray-600">{messages.features.feature3.description}</p>
           </div>
-          
           <div className="card p-6 text-center">
             <ChartBarIcon className="h-12 w-12 text-sage-600 mx-auto mb-4" />
             <h3 className="text-lg font-semibold text-gray-800 mb-2">{messages.features.feature4.title}</h3>
@@ -126,7 +123,6 @@ export default function Home() {
               {messages.home.guide.button}
             </Link>
           </div>
-
           {/* Tools Comparison */}
           <div className="card p-8">
             <div className="flex items-center gap-4 mb-6">
@@ -157,6 +153,20 @@ export default function Home() {
           {messages.home.specialized.title}
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Guides Card */}
+          <div className="card p-6 hover:shadow-lg transition-all duration-200">
+            <div className="flex items-center gap-3 mb-4">
+              <BookOpenIcon className="h-8 w-8 text-sage-600" />
+              <h3 className="text-lg font-semibold text-gray-800">{messages.home.specialized.guides.title}</h3>
+            </div>
+            <p className="text-gray-600 mb-4">
+              {messages.home.specialized.guides.description}
+            </p>
+            <Link href="/guide" className="text-sage-600 hover:text-sage-700 font-medium" onMouseEnter={() => preloadPage('/guide')}>
+              {messages.home.specialized.readMore}
+            </Link>
+          </div>
+          {/* Danish Card */}
           <div className="card p-6 hover:shadow-lg transition-all duration-200">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
@@ -171,7 +181,7 @@ export default function Home() {
               {messages.home.specialized.readMore}
             </Link>
           </div>
-
+          {/* Math Card */}
           <div className="card p-6 hover:shadow-lg transition-all duration-200">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-8 h-8 bg-sage-100 rounded-lg flex items-center justify-center">
@@ -186,7 +196,7 @@ export default function Home() {
               {messages.home.specialized.readMore}
             </Link>
           </div>
-
+          {/* History Card */}
           <div className="card p-6 hover:shadow-lg transition-all duration-200">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-8 h-8 bg-red-100 rounded-lg flex items-center justify-center">
@@ -201,7 +211,7 @@ export default function Home() {
               {messages.home.specialized.readMore}
             </Link>
           </div>
-
+          {/* Law Card */}
           <div className="card p-6 hover:shadow-lg transition-all duration-200">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center">
@@ -213,36 +223,6 @@ export default function Home() {
               {messages.home.specialized.law.description}
             </p>
             <Link href="/ai-lovgivning" className="text-sage-600 hover:text-sage-700 font-medium" onMouseEnter={() => preloadPage('/ai-lovgivning')}>
-              {messages.home.specialized.readMore}
-            </Link>
-          </div>
-
-          <div className="card p-6 hover:shadow-lg transition-all duration-200">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
-                <span className="text-green-600 font-bold">V</span>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-800">{messages.home.specialized.toolsComparison.title}</h3>
-            </div>
-            <p className="text-gray-600 mb-4">
-              {messages.home.specialized.toolsComparison.description}
-            </p>
-            <Link href="/ai-vaerktoejssammenligning" className="text-sage-600 hover:text-sage-700 font-medium" onMouseEnter={() => preloadPage('/ai-vaerktoejssammenligning')}>
-              {messages.home.specialized.readMore}
-            </Link>
-          </div>
-
-          <div className="card p-6 hover:shadow-lg transition-all duration-200">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-8 bg-sage-100 rounded-lg flex items-center justify-center">
-                <span className="text-sage-600 font-bold">I</span>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-800">{messages.home.specialized.inclusion.title}</h3>
-            </div>
-            <p className="text-gray-600 mb-4">
-              {messages.home.specialized.inclusion.description}
-            </p>
-            <Link href="/ai-inklusion" className="text-sage-600 hover:text-sage-700 font-medium" onMouseEnter={() => preloadPage('/ai-inklusion')}>
               {messages.home.specialized.readMore}
             </Link>
           </div>

@@ -8,6 +8,7 @@ import { useContext } from 'react';
 import { LocaleContext } from './_app';
 import fs from 'fs';
 import path from 'path';
+import Image from 'next/image';
 
 export default function Guide({ content, daContent, enContent }) {
   const { messages, locale } = useContext(LocaleContext);
@@ -54,6 +55,10 @@ export default function Guide({ content, daContent, enContent }) {
         <meta name="description" content={messages.guide.pageDescription} />
       </Head>
       <Layout>
+      {/* Header Image */}
+      <div className="max-w-4xl mx-auto mb-8 rounded-2xl overflow-hidden">
+        <Image src="/images/guide-card.jpg" alt="Guide" width={1200} height={320} className="object-cover w-full h-48 md:h-64" priority />
+      </div>
       {/* Hero Section */}
       <section className="hero-gradient rounded-2xl shadow-lg py-12 px-8 mb-8">
         <div className="max-w-4xl mx-auto text-center">

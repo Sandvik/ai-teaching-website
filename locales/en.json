@@ -236,6 +236,10 @@
     },
     "specialized": {
       "title": "Specialized guides",
+      "guides": {
+        "title": "Guides",
+        "description": "Find all our AI teaching guides in one place."
+      },
       "danish": {
         "title": "AI in Danish (detailed)",
         "description": "Practical strategies and activities for using AI in Danish language teaching."
