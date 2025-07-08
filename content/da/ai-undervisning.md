@@ -1,10 +1,10 @@
 # AI i Undervisning: Komplet Guide til Lærere
 
-## 🎯 Introduktion til AI i Undervisning
+## 🎯 Introduktion til AI i Undervisning {#introduktion-til-ai-i-undervisning}
 
 AI (Kunstig Intelligens) revolutionerer måden vi underviser og lærer på. Fra personliggøret læring til automatiseret feedback, AI-værktøjer kan styrke både lærere og elever. Denne guide giver dig praktiske strategier og konkrete eksempler til at integrere AI i din daglige undervisning.
 
-## 🚀 Grundlæggende AI-koncepter for Lærere
+## 🚀 Grundlæggende AI-koncepter for Lærere {#grundlæggende-ai-koncepter-for-lærere}
 
 ### Hvad er AI?
 Kunstig Intelligens er teknologi der kan simulere menneskelig intelligens - lære, ræsonnere og løse problemer. I undervisning kan AI hjælpe med:
@@ -19,7 +19,7 @@ Kunstig Intelligens er teknologi der kan simulere menneskelig intelligens - lær
 3. **Computer Vision** (Photomath) - Læser og løser matematikopgaver
 4. **Natural Language Processing** (Grammarly) - Forbedrer skrivning og kommunikation
 
-## 📚 Praktiske Anvendelser i Forskellige Fag
+## 📚 Praktiske Anvendelser i Forskellige Fag {#praktiske-anvendelser-i-forskellige-fag}
 
 ### **Dansk/Engelsk**
 
@@ -103,7 +103,7 @@ Brug moderne analogier og sammenligninger."
 - **AI-genererede melodier** - Eksperimenter med komposition
 - **Lydanalyse** - Undersøg forskellige musikstile
 
-## 🎨 Undervisningsstrategier med AI
+## 🎨 Undervisningsstrategier med AI {#undervisningsstrategier-med-ai}
 
 ### **1. Flipped Classroom med AI**
 
@@ -143,7 +143,7 @@ Forklar forskellene og hvordan du tilpasser sværhedsgraden."
 - Skab roller og ansvarsområder
 - Facilitere diskussioner med AI-moderatorer
 
-## 🛠️ Praktiske Værktøjer og Apps
+## 🛠️ Praktiske Værktøjer og Apps {#praktiske-værktøjer-og-apps}
 
 ### **Gratis AI-værktøjer til undervisning**
 
@@ -171,7 +171,7 @@ Forklar forskellene og hvordan du tilpasser sværhedsgraden."
 - **Canva Pro** - Flere funktioner og skabeloner
 - **Grammarly Premium** - Avancerede skrivefunktioner
 
-## 📊 Evaluering og Feedback med AI
+## 📊 Evaluering og Feedback med AI {#evaluering-og-feedback-med-ai}
 
 ### **Automatiseret Feedback**
 
@@ -201,7 +201,7 @@ Giv svarmuligheder og forklaringer til hvert svar."
 - Personliggøret feedback
 - Sporing af fremskridt over tid
 
-## 🎯 Lektiehjælp og Hjemmestøtte
+## 🎯 Lektiehjælp og Hjemmestøtte {#lektiehjælp-og-hjemmestøtte}
 
 ### **AI som lektieassistent**
 
@@ -232,7 +232,7 @@ Giv ham en struktur han kan følge og 5 spørgsmål der hjælper ham
 med at tænke dybere om karakteren."
 ```
 
-## 🚨 Etik og Ansvar i AI-brug
+## 🚨 Etik og Ansvar i AI-brug {#etik-og-ansvar-i-ai-brug}
 
 ### **Vigtige overvejelser**
 
@@ -260,7 +260,7 @@ med at tænke dybere om karakteren."
 3. **Lær prompt engineering** - Formuler gode spørgsmål
 4. **Vær transparent** - Fortæl hvornår du bruger AI
 
-## 🔮 Fremtidige Muligheder
+## 🔮 Fremtidige Muligheder {#fremtidige-muligheder}
 
 ### **Emerging Technologies**
 
@@ -284,7 +284,7 @@ med at tænke dybere om karakteren."
 - **Adaptiv læring** - Tilpasser til individuelle behov
 - **Emotionel støtte** - Motiverer og opmuntrer
 
-## 📋 Implementeringsplan
+## 📋 Implementeringsplan {#implementeringsplan}
 
 ### **Fase 1: Kom i gang (1-2 uger)**
 1. **Vælg 1-2 AI-værktøjer** - Start med ChatGPT og Canva
@@ -326,7 +326,7 @@ med at tænke dybere om karakteren."
 - **AI in Education Summit**
 - **EdTech conferences**
 
-## 🏆 Success Stories
+## 🏆 Success Stories {#success-stories}
 
 ### **Case Study: Matematik i 6. klasse**
 **Lærer:** Maria Hansen, København

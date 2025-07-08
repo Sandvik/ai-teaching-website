@@ -21,6 +21,14 @@ function addIdsToHeadings(html) {
   return html.replace(
     /<h([1-6])>(.*?)<\/h([1-6])>/g,
     (match, level, content) => {
+      // Check if heading already has an ID from markdown {#id} syntax
+      const idMatch = content.match(/\{#([^}]+)\}$/);
+      if (idMatch) {
+        const id = idMatch[1];
+        const cleanContent = content.replace(/\{#[^}]+\}$/, '').trim();
+        return `<h${level} id="${id}">${cleanContent}</h${level}>`;
+      }
+      
       // Create ID that matches the ones used in guide.js, comparison.js, and ai-teaching.js
       let id = content
         .toLowerCase()

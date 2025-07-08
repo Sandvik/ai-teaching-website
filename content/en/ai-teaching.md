@@ -1,10 +1,10 @@
 # AI in Teaching: Complete Guide for Educators
 
-## 🎯 Introduction to AI in Teaching
+## 🎯 Introduction to AI in Teaching {#introduktion-til-ai-i-undervisning}
 
 Artificial Intelligence (AI) is revolutionizing how we teach and learn. From personalized learning to automated feedback, AI tools can empower both teachers and students. This guide provides practical strategies and concrete examples for integrating AI into your daily teaching practice.
 
-## 🚀 Basic AI Concepts for Teachers
+## 🚀 Basic AI Concepts for Teachers {#grundlæggende-ai-koncepter-for-lærere}
 
 ### What is AI?
 Artificial Intelligence is technology that can simulate human intelligence - learning, reasoning, and problem-solving. In teaching, AI can help with:
@@ -19,7 +19,7 @@ Artificial Intelligence is technology that can simulate human intelligence - lea
 3. **Computer Vision** (Photomath) - Reads and solves math problems
 4. **Natural Language Processing** (Grammarly) - Improves writing and communication
 
-## 📚 Practical Applications in Different Subjects
+## 📚 Practical Applications in Different Subjects {#praktiske-anvendelser-i-forskellige-fag}
 
 ### **English/Language Arts**
 
@@ -102,7 +102,7 @@ in a way that's relevant to their lives today. Use modern analogies and comparis
 - **AI-generated melodies** - Experiment with composition
 - **Audio analysis** - Explore different music styles
 
-## 🎨 Teaching Strategies with AI
+## 🎨 Teaching Strategies with AI {#undervisningsstrategier-med-ai}
 
 ### **1. Flipped Classroom with AI**
 
@@ -142,7 +142,7 @@ Explain the differences and how you adjust difficulty."
 - Create roles and responsibilities
 - Facilitate discussions with AI moderators
 
-## 🛠️ Practical Tools and Apps
+## 🛠️ Practical Tools and Apps {#praktiske-værktøjer-og-apps}
 
 ### **Free AI tools for teaching**
 
@@ -170,7 +170,7 @@ Explain the differences and how you adjust difficulty."
 - **Canva Pro** - More features and templates
 - **Grammarly Premium** - Advanced writing features
 
-## 📊 Assessment and Feedback with AI
+## 📊 Assessment and Feedback with AI {#evaluering-og-feedback-med-ai}
 
 ### **Automated Feedback**
 
@@ -200,7 +200,7 @@ Give answer options and explanations for each answer."
 - Personalized feedback
 - Progress tracking over time
 
-## 🎯 Homework Help and Home Support
+## 🎯 Homework Help and Home Support {#lektiehjælp-og-hjemmestøtte}
 
 ### **AI as homework assistant**
 
@@ -231,7 +231,7 @@ Give him a structure he can follow and 5 questions that help him
 think deeper about the character."
 ```
 
-## 🚨 Ethics and Responsibility in AI Use
+## 🚨 Ethics and Responsibility in AI Use {#etik-og-ansvar-i-ai-brug}
 
 ### **Important considerations**
 
@@ -259,7 +259,7 @@ think deeper about the character."
 3. **Learn prompt engineering** - Formulate good questions
 4. **Be transparent** - Tell when you use AI
 
-## 🔮 Future Possibilities
+## 🔮 Future Possibilities {#fremtidige-muligheder}
 
 ### **Emerging Technologies**
 
@@ -283,7 +283,7 @@ think deeper about the character."
 - **Adaptive learning** - Adapts to individual needs
 - **Emotional support** - Motivates and encourages
 
-## 📋 Implementation Plan
+## 📋 Implementation Plan {#implementeringsplan}
 
 ### **Phase 1: Get started (1-2 weeks)**
 1. **Choose 1-2 AI tools** - Start with ChatGPT and Canva
@@ -325,7 +325,7 @@ think deeper about the character."
 - **AI in Education Summit**
 - **EdTech conferences**
 
-## 🏆 Success Stories
+## 🏆 Success Stories {#success-stories}
 
 ### **Case Study: Math in 6th grade**
 **Teacher:** Maria Hansen, Copenhagen
