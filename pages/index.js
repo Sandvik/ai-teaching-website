@@ -16,11 +16,25 @@ import {
 
 export default function Home() {
   const { locale, messages } = useContext(LocaleContext);
+  
+  // Preload critical pages for better performance
+  const preloadPage = (href) => {
+    const link = document.createElement('link');
+    link.rel = 'prefetch';
+    link.href = href;
+    document.head.appendChild(link);
+  };
+
   return (
     <>
       <Head>
         <title>{messages.meta.homeTitle}</title>
         <meta name="description" content={messages.meta.homeDescription} />
+        
+        {/* Preload critical pages */}
+        <link rel="prefetch" href="/guide" />
+        <link rel="prefetch" href="/comparison" />
+        <link rel="prefetch" href="/ai-teaching" />
       </Head>
       <Layout>
       {/* Hero Section */}
@@ -33,10 +47,10 @@ export default function Home() {
             {messages.hero.subtitle}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/guide" className="btn-primary">
+            <Link href="/guide" className="btn-primary" onMouseEnter={() => preloadPage('/guide')}>
               {messages.hero.cta}
             </Link>
-            <Link href="/comparison" className="btn-secondary">
+            <Link href="/comparison" className="btn-secondary" onMouseEnter={() => preloadPage('/comparison')}>
               {messages.hero.seeTools}
             </Link>
           </div>

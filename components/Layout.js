@@ -1,10 +1,13 @@
-import React, { useContext } from 'react';
+import React, { useContext, lazy, Suspense } from 'react';
 import { LocaleContext } from '../pages/_app';
 import { GlobeAltIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
-import ScrollToTop from './ScrollToTop';
+import Breadcrumb from './Breadcrumb';
 
-export default function Layout({ children }) {
+// Lazy load ScrollToTop component for better performance
+const ScrollToTop = lazy(() => import('./ScrollToTop'));
+
+const Layout = React.memo(({ children }) => {
   const { locale, setLocale, messages } = useContext(LocaleContext);
 
   const toggleLocale = () => {
@@ -55,11 +58,14 @@ export default function Layout({ children }) {
 
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <Breadcrumb />
         {children}
       </main>
 
-      {/* Scroll to Top Button */}
-      <ScrollToTop />
+      {/* Scroll to Top Button - Lazy loaded */}
+      <Suspense fallback={null}>
+        <ScrollToTop />
+      </Suspense>
 
       {/* Footer */}
       <footer className="footer mt-16">
@@ -112,4 +118,8 @@ export default function Layout({ children }) {
       </footer>
     </div>
   );
-} 
+});
+
+Layout.displayName = 'Layout';
+
+export default Layout; 

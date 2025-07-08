@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { remark } from 'remark';
 import html from 'remark-html';
 import { StarIcon } from '@heroicons/react/24/solid';
 
-function calloutHtml(text) {
+const calloutHtml = (text) => {
   if (text.startsWith('Tip:')) {
     return `<div class='callout-tip'><span class='icon'>💡</span><div>${text.replace('Tip:', '').trim()}</div></div>`;
   }
@@ -14,9 +14,9 @@ function calloutHtml(text) {
     return `<div class='callout-info'><span class='icon'>ℹ️</span><div>${text.replace('Info:', '').trim()}</div></div>`;
   }
   return null;
-}
+};
 
-function processHtmlInMarkdown(content) {
+const processHtmlInMarkdown = (content) => {
   // Replace HTML content with placeholders before markdown processing
   const htmlBlocks = [];
   let htmlIndex = 0;
@@ -30,9 +30,9 @@ function processHtmlInMarkdown(content) {
   });
   
   return { content, htmlBlocks };
-}
+};
 
-function processMarkdownTables(content) {
+const processMarkdownTables = (content) => {
   // Process markdown tables and replace with placeholders
   console.log('Processing markdown tables...');
   
@@ -87,9 +87,9 @@ function processMarkdownTables(content) {
   }
   
   return { content: result.join('\n'), tableBlocks };
-}
+};
 
-function restoreHtmlBlocks(htmlStr, htmlBlocks, tableBlocks) {
+const restoreHtmlBlocks = (htmlStr, htmlBlocks, tableBlocks) => {
   // Restore HTML blocks from placeholders - improved restoration
   htmlBlocks.forEach((block, index) => {
     const placeholder = `HTML_BLOCK_${index}_PLACEHOLDER`;
@@ -117,9 +117,9 @@ function restoreHtmlBlocks(htmlStr, htmlBlocks, tableBlocks) {
   }
   
   return htmlStr;
-}
+};
 
-function addIdsToHeadings(html) {
+const addIdsToHeadings = (html) => {
   // Add IDs to headings for navigation - match the IDs used in guide.js, comparison.js, and ai-teaching.js
   return html.replace(
     /<h([1-6])>(.*?)<\/h([1-6])>/g,
@@ -205,9 +205,9 @@ function addIdsToHeadings(html) {
       return `<h${level} id="${id}">${content}</h${level}>`;
     }
   );
-}
+};
 
-function convertStarsToIcons(html) {
+const convertStarsToIcons = (html) => {
   // Convert star ratings to visual stars
   return html.replace(
     /(⭐⭐⭐⭐⭐|⭐⭐⭐⭐|⭐⭐⭐|⭐⭐|⭐)/g,
@@ -224,9 +224,9 @@ function convertStarsToIcons(html) {
       return `<span class="flex items-center gap-1">${stars.join('')} <span class="text-sm text-gray-600 ml-1">${starCount}.0</span></span>`;
     }
   );
-}
+};
 
-function convertTableToHtml(tableLines) {
+const convertTableToHtml = (tableLines) => {
   if (tableLines.length < 3) return tableLines.join('\n');
   
   const headerRow = tableLines[0];
@@ -264,9 +264,9 @@ function convertTableToHtml(tableLines) {
   
   console.log('Generated HTML table for:', headers.join(', '));
   return htmlTable;
-}
+};
 
-function enhanceTableStyling(html) {
+const enhanceTableStyling = (html) => {
   // Enhance table styling with better classes
   return html.replace(
     /<table>/g,
@@ -281,12 +281,14 @@ function enhanceTableStyling(html) {
     /<tr>/g,
     '<tr class="hover:bg-sage-50 transition-colors">'
   );
-}
+};
 
-export default function MarkdownRenderer({ content }) {
+const MarkdownRenderer = React.memo(({ content }) => {
   const [htmlContent, setHtmlContent] = useState('');
-  
-  useEffect(() => {
+
+  const processContent = useCallback(async () => {
+    if (!content) return;
+    
     // Custom renderer for blockquotes as callouts
     const blockquoteReplacer = (html) => {
       return html.replace(/<blockquote>\s*<p>(.*?)<\/p>\s*<\/blockquote>/gs, (match, p1) => {
@@ -304,31 +306,40 @@ export default function MarkdownRenderer({ content }) {
     const { content: contentWithTables, tableBlocks } = processMarkdownTables(processedContent);
     console.log('Table blocks found:', tableBlocks.length);
     
-    // First process markdown to HTML
-    remark()
-      .use(html)
-      .process(contentWithTables)
-      .then((file) => {
-        let htmlStr = String(file);
-        console.log('Initial HTML length:', htmlStr.length);
-        console.log('Looking for placeholder in HTML:', htmlStr.includes('HTML_BLOCK_0_PLACEHOLDER'));
-        console.log('Looking for table placeholder in HTML:', htmlStr.includes('TABLE_BLOCK_0_PLACEHOLDER'));
-        
-        // Restore HTML blocks and tables
-        htmlStr = restoreHtmlBlocks(htmlStr, htmlBlocks, tableBlocks);
-        console.log('After HTML restoration length:', htmlStr.length);
-        
-        htmlStr = blockquoteReplacer(htmlStr);
-        htmlStr = addIdsToHeadings(htmlStr);
-        htmlStr = convertStarsToIcons(htmlStr);
-        htmlStr = enhanceTableStyling(htmlStr);
-        setHtmlContent(htmlStr);
-      })
-      .catch((error) => {
-        console.error('Error processing markdown:', error);
-        setHtmlContent('<p>Error loading content</p>');
-      });
+    try {
+      // First process markdown to HTML
+      const file = await remark()
+        .use(html)
+        .process(contentWithTables);
+      
+      let htmlStr = String(file);
+      console.log('Initial HTML length:', htmlStr.length);
+      console.log('Looking for placeholder in HTML:', htmlStr.includes('HTML_BLOCK_0_PLACEHOLDER'));
+      console.log('Looking for table placeholder in HTML:', htmlStr.includes('TABLE_BLOCK_0_PLACEHOLDER'));
+      
+      // Restore HTML blocks and tables
+      htmlStr = restoreHtmlBlocks(htmlStr, htmlBlocks, tableBlocks);
+      console.log('After HTML restoration length:', htmlStr.length);
+      
+      htmlStr = blockquoteReplacer(htmlStr);
+      htmlStr = addIdsToHeadings(htmlStr);
+      htmlStr = convertStarsToIcons(htmlStr);
+      htmlStr = enhanceTableStyling(htmlStr);
+      
+      setHtmlContent(htmlStr);
+    } catch (error) {
+      console.error('Error processing markdown:', error);
+      setHtmlContent('<p>Error loading content</p>');
+    }
   }, [content]);
-  
+
+  useEffect(() => {
+    processContent();
+  }, [processContent]);
+
   return <div className="markdown-content" dangerouslySetInnerHTML={{ __html: htmlContent }} />;
-} 
+});
+
+MarkdownRenderer.displayName = 'MarkdownRenderer';
+
+export default MarkdownRenderer; 
