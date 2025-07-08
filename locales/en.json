@@ -7,6 +7,17 @@
     "comparison": "Comparison",
     "quiz": "Quiz Generator"
   },
+  "layout": {
+    "logo": "AI-Skole - AI in Education and Learning",
+    "languageToggle": "DA",
+    "footer": {
+      "description": "Practical guides and tools for using AI in education and learning.",
+      "resources": "Resources",
+      "contact": "Contact",
+      "contactText": "Have questions or tips?",
+      "copyright": "All rights reserved."
+    }
+  },
   "landing": {
     "headline": "Discover AI in education and learning",
     "subheadline": "Guides, tools and resources for teachers, students and parents.",
@@ -24,7 +35,49 @@
     "good": "Well done – try again to get even better!",
     "tryAgain": "Try again – AI can be tricky!",
     "newQuiz": "New quiz",
-    "readGuide": "Read guide about AI in quizzes"
+    "readGuide": "Read guide about AI in quizzes",
+    "questions": [
+      {
+        "question": "Which AI tool is best for generating quizzes?",
+        "options": ["ChatGPT", "Google Bard", "Claude", "All of the above"],
+        "correct": 3
+      },
+      {
+        "question": "What is one of the biggest challenges of using AI in teaching?",
+        "options": ["AI can give wrong answers", "AI makes all students the same", "AI removes the need for teachers", "AI makes teaching boring"],
+        "correct": 0
+      },
+      {
+        "question": "True or false: AI can help differentiate assignments.",
+        "options": ["True", "False"],
+        "correct": 0
+      },
+      {
+        "question": "Which tool can be used to create math quizzes?",
+        "options": ["Only ChatGPT", "Only Wolfram Alpha", "Multiple AI tools", "No AI tools"],
+        "correct": 2
+      },
+      {
+        "question": "Which AI function can help explain difficult concepts?",
+        "options": ["Text generation", "Image generation", "Translation", "Automation"],
+        "correct": 0
+      },
+      {
+        "question": "What should teachers always do when using AI?",
+        "options": ["Only trust AI", "Always verify output", "Ignore AI", "Only use free tools"],
+        "correct": 1
+      },
+      {
+        "question": "What is one limitation of AI in teaching?",
+        "options": ["AI can have bias", "AI is always objective", "AI cannot learn", "AI understands emotions"],
+        "correct": 0
+      },
+      {
+        "question": "True or false: AI can be used to support inclusion.",
+        "options": ["True", "False"],
+        "correct": 0
+      }
+    ]
   },
   "callouts": {
     "tip": "Tip",
@@ -33,26 +86,155 @@
   },
   "comparison": {
     "miniReviews": "Mini-reviews",
-    "whichToChoose": "Which tool should you choose?"
+    "whichToChoose": "Which tool should you choose?",
+    "pageTitle": "AI Tools Comparison - AI-Skole - AI in Education and Learning",
+    "pageDescription": "Find the perfect AI tool for your teaching and learning needs.",
+    "heroTitle": "AI Tools Comparison",
+    "heroDescription": "Find the perfect AI tool for your teaching and learning needs.",
+    "filters": {
+      "free": "Free Tools",
+      "paid": "Paid Tools",
+      "topRated": "Top Rated"
+    },
+    "navigation": {
+      "overview": "Overview of AI tools for teaching",
+      "topTools": "Top tools",
+      "subjectSpecific": "Subject-specific AI tools",
+      "applications": "Applications"
+    },
+    "callouts": {
+      "learnMore": "Learn how to use AI tools effectively in teaching.",
+      "quizGenerator": "Create engaging quizzes and tests with AI help.",
+      "needHelp": "Need help choosing?",
+      "getAdvice": "Get personalized recommendations based on your specific needs and budget.",
+      "getAdviceButton": "Get advice"
+    }
+  },
+  "aiTeaching": {
+    "pageTitle": "AI in Teaching - AI-Skole - AI in Education and Learning",
+    "pageDescription": "Master the art of integrating AI into your teaching with practical strategies, tools and real examples.",
+    "heroTitle": "AI in Teaching",
+    "heroDescription": "Master the art of integrating AI into your teaching with practical strategies, tools and real examples.",
+    "navigation": {
+      "basicConcepts": "Basic Concepts",
+      "toolsApps": "Tools & Apps",
+      "homeworkHelp": "Homework Help"
+    },
+    "callouts": {
+      "learnMore": "Learn how to use AI tools effectively in teaching.",
+      "comparison": "AI Tools Comparison",
+      "comparisonDescription": "Compare different AI tools and find the best for your needs.",
+      "quizGenerator": "Create engaging quizzes and tests with AI help.",
+      "cta": "Start your AI teaching journey today and discover the endless possibilities for improving student learning."
+    }
+  },
+  "guide": {
+    "pageTitle": "Complete Guide: AI in Education - AI-Skole - AI in Education and Learning",
+    "pageDescription": "Learn how to use ChatGPT and AI tools effectively in your teaching and home support.",
+    "heroTitle": "Complete Guide: AI in Education",
+    "heroDescription": "Learn how to use ChatGPT and AI tools effectively in your teaching and home support.",
+    "navigation": {
+      "howToUse": "How to use ChatGPT and AI in teaching",
+      "tableOfContents": "Table of Contents",
+      "introduction": "Introduction",
+      "generateQuizzes": "Generate Quizzes",
+      "getInspiration": "Get Inspiration",
+      "prepareMaterials": "Prepare Materials",
+      "parentSupport": "Parent Support",
+      "ethics": "Ethics & Responsible Use"
+    },
+    "quickLinks": {
+      "gettingStarted": "Getting Started",
+      "forTeachers": "For Teachers",
+      "forParents": "For Parents"
+    },
+    "callouts": {
+      "relatedResources": "Related Resources",
+      "comparison": "AI Tools Comparison",
+      "comparisonDescription": "Compare different AI tools and find the best for your needs.",
+      "quizGenerator": "Quiz Generator",
+      "quizGeneratorDescription": "Create engaging quizzes and tests with AI assistance.",
+      "needHelp": "Need Help or Have Questions?",
+      "needHelpDescription": "Share your experiences or get personalized advice from our community.",
+      "contactUs": "Contact Us"
+    }
+  },
+  "meta": {
+    "homeTitle": "AI-Skole - AI in Education and Learning",
+    "homeDescription": "Discover how artificial intelligence can improve learning and teaching. Practical tools and guides for teachers and parents.",
+    "quizTitle": "Quiz Generator - AI-Skole - AI in Education and Learning"
   },
   "hero": {
     "title": "AI in Education",
     "subtitle": "Practical guides and tools for using AI in school and at home",
-    "cta": "Get Started"
+    "cta": "Get Started",
+    "seeTools": "See tools"
   },
   "features": {
-    "title": "What can you learn?",
+    "title": "What can AI help with?",
     "feature1": {
-      "title": "AI Tools",
-      "description": "Learn to use ChatGPT, Claude and other AI tools effectively"
+      "title": "Lesson Planning",
+      "description": "Save time with AI-driven lesson plans and activities"
     },
     "feature2": {
-      "title": "Teaching",
-      "description": "Get practical tips for integrating AI into your teaching"
+      "title": "Differentiation",
+      "description": "Adapt teaching to all students' needs and levels"
     },
     "feature3": {
-      "title": "Learning",
-      "description": "Understand how AI can support student learning and development"
+      "title": "Creativity",
+      "description": "Get inspiration for new teaching methods and projects"
+    },
+    "feature4": {
+      "title": "Assessment",
+      "description": "Create quizzes and tests automatically with AI"
+    }
+  },
+  "home": {
+    "guide": {
+      "title": "Complete Guide",
+      "description": "Learn how to use ChatGPT and other AI tools in your teaching. Step-by-step guide with practical examples.",
+      "features": [
+        "Basic AI concepts",
+        "Practical classroom applications",
+        "Tips for parents"
+      ],
+      "button": "Read guide"
+    },
+    "comparison": {
+      "title": "Tool Comparison",
+      "description": "Find the best AI tool for your needs. Comparison of features, prices and applications.",
+      "features": [
+        "Free vs. paid tools",
+        "Subject-specific recommendations",
+        "Practical reviews"
+      ],
+      "button": "See comparison"
+    },
+    "specialized": {
+      "title": "Specialized guides",
+      "math": {
+        "title": "AI in Mathematics",
+        "description": "Discover the best AI tools for mathematics teaching and home support."
+      },
+      "inclusion": {
+        "title": "Inclusion & Differentiation",
+        "description": "How AI can support students with different needs and learning styles."
+      },
+      "parents": {
+        "title": "Parent Collaboration",
+        "description": "Improve communication between school and home with AI tools."
+      },
+      "readMore": "Read more →"
+    },
+    "tools": {
+      "title": "Interactive Tools",
+      "description": "Try our AI-powered quiz generator and get inspiration for your own activities.",
+      "button": "Try quiz generator"
+    },
+    "cta": {
+      "title": "Share your experience",
+      "description": "Have you tried AI in teaching? Share your tips and experiences with other teachers and parents.",
+      "button": "Contact us"
     }
   }
 } 

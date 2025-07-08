@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import { LocaleContext } from '../pages/_app';
 import { GlobeAltIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
-import AdPlaceholder from './AdPlaceholder';
 import ScrollToTop from './ScrollToTop';
 
 export default function Layout({ children }) {
@@ -21,7 +20,7 @@ export default function Layout({ children }) {
             {/* Logo */}
             <Link href="/" className="flex items-center space-x-2">
               <GlobeAltIcon className="h-8 w-8 text-sage-600" />
-              <span className="text-xl font-bold text-gray-800">AI i Undervisning</span>
+              <span className="text-xl font-bold text-gray-800">{messages.layout.logo}</span>
             </Link>
 
             {/* Navigation Links */}
@@ -48,7 +47,7 @@ export default function Layout({ children }) {
               onClick={toggleLocale}
               className="bg-sage-100 text-sage-700 px-3 py-1 rounded-full text-sm font-medium hover:bg-sage-200 transition-colors"
             >
-              {locale === 'da' ? 'EN' : 'DA'}
+              {messages.layout.languageToggle}
             </button>
           </div>
         </div>
@@ -56,7 +55,6 @@ export default function Layout({ children }) {
 
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <AdPlaceholder />
         {children}
       </main>
 
@@ -68,17 +66,14 @@ export default function Layout({ children }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="grid md:grid-cols-3 gap-8">
             <div>
-              <h3 className="text-lg font-semibold mb-4">AI i Undervisning</h3>
+              <h3 className="text-lg font-semibold mb-4">{messages.layout.logo}</h3>
               <p className="text-gray-300">
-                {locale === 'da' 
-                  ? 'Praktiske guides og værktøjer til brug af AI i undervisning og læring.'
-                  : 'Practical guides and tools for using AI in education and learning.'
-                }
+                {messages.layout.footer.description}
               </p>
             </div>
             <div>
               <h3 className="text-lg font-semibold mb-4">
-                {locale === 'da' ? 'Ressourcer' : 'Resources'}
+                {messages.layout.footer.resources}
               </h3>
               <ul className="space-y-2 text-gray-300">
                 <li><Link href="/ai-teaching" className="hover:text-white transition-colors">
@@ -97,21 +92,21 @@ export default function Layout({ children }) {
             </div>
             <div>
               <h3 className="text-lg font-semibold mb-4">
-                {locale === 'da' ? 'Kontakt' : 'Contact'}
+                {messages.layout.footer.contact}
               </h3>
               <p className="text-gray-300 mb-2">
-                {locale === 'da' ? 'Har du spørgsmål eller tips?' : 'Have questions or tips?'}
+                {messages.layout.footer.contactText}
               </p>
               <a 
-                href="mailto:kontakt@ai-undervisning.dk" 
+                href="mailto:info@ai-skole.dk" 
                 className="text-sage-300 hover:text-white transition-colors"
               >
-                kontakt@ai-undervisning.dk
+                info@ai-skole.dk
               </a>
             </div>
           </div>
           <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 AI i Undervisning. {locale === 'da' ? 'Alle rettigheder forbeholdes.' : 'All rights reserved.'}</p>
+            <p>&copy; 2024 {messages.layout.logo}. {messages.layout.footer.copyright}</p>
           </div>
         </div>
       </footer>

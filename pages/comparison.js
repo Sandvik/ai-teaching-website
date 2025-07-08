@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import Head from 'next/head';
 import Layout from '../components/Layout';
 import MarkdownRenderer from '../components/MarkdownRenderer';
 import { ChartBarIcon, StarIcon, CheckIcon, XMarkIcon, CurrencyDollarIcon, SparklesIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
-import { useContext } from 'react';
 import { LocaleContext } from './_app';
 import fs from 'fs';
 import path from 'path';
@@ -18,22 +18,25 @@ function parseTable(md) {
   return { headers, rows };
 }
 
-export default function Comparison({ content, table }) {
-  const { locale } = useContext(LocaleContext);
+export default function Comparison({ content, table, daContent, enContent }) {
+  const { messages, locale } = useContext(LocaleContext);
+  
+  // Vælg det korrekte indhold baseret på locale
+  const currentContent = locale === 'en' ? enContent : daContent;
   
   const quickFilters = [
     {
-      title: locale === 'en' ? 'Free Tools' : 'Gratis værktøjer',
+      title: messages.comparison.filters.free,
       icon: SparklesIcon,
       color: 'bg-green-100 text-green-700'
     },
     {
-      title: locale === 'en' ? 'Paid Tools' : 'Betalte værktøjer',
+      title: messages.comparison.filters.paid,
       icon: CurrencyDollarIcon,
       color: 'bg-blue-100 text-blue-700'
     },
     {
-      title: locale === 'en' ? 'Top Rated' : 'Højest vurderet',
+      title: messages.comparison.filters.topRated,
       icon: StarIcon,
       color: 'bg-yellow-100 text-yellow-700'
     }
@@ -64,7 +67,12 @@ export default function Comparison({ content, table }) {
   };
 
   return (
-    <Layout>
+    <>
+      <Head>
+            <title>{messages.comparison.pageTitle}</title>
+    <meta name="description" content={messages.comparison.pageDescription} />
+      </Head>
+      <Layout>
       {/* Hero Section */}
       <section className="hero-gradient rounded-2xl shadow-lg py-12 px-8 mb-8">
         <div className="max-w-4xl mx-auto text-center">
@@ -74,13 +82,10 @@ export default function Comparison({ content, table }) {
             </div>
           </div>
           <h1 className="text-4xl font-bold text-gray-800 mb-4">
-            {locale === 'en' ? 'AI Tools Comparison' : 'AI-værktøjssammenligning'}
+            {messages.comparison.heroTitle}
           </h1>
           <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            {locale === 'en' 
-              ? 'Find the perfect AI tool for your teaching and learning needs.'
-              : 'Find det perfekte AI-værktøj til dine undervisnings- og læringsbehov.'
-            }
+            {messages.comparison.heroDescription}
           </p>
           
           {/* Quick Filters */}
@@ -159,7 +164,7 @@ export default function Comparison({ content, table }) {
           {/* Main Content */}
           <div className="lg:col-span-3">
             <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-8">
-              <MarkdownRenderer content={content} />
+              <MarkdownRenderer content={currentContent} />
             </div>
           </div>
         </div>
@@ -178,10 +183,7 @@ export default function Comparison({ content, table }) {
                   {locale === 'en' ? 'Complete Guide' : 'Komplet guide'}
                 </h3>
                 <p className="text-gray-600">
-                  {locale === 'en' 
-                    ? 'Learn how to use AI tools effectively in education.'
-                    : 'Lær hvordan du bruger AI-værktøjer effektivt i undervisning.'
-                  }
+                  {messages.comparison.callouts.learnMore}
                 </p>
               </div>
             </Link>
@@ -192,10 +194,7 @@ export default function Comparison({ content, table }) {
                   {locale === 'en' ? 'Quiz Generator' : 'Quiz-generator'}
                 </h3>
                 <p className="text-gray-600">
-                  {locale === 'en' 
-                    ? 'Create engaging quizzes and tests with AI assistance.'
-                    : 'Lav engagerende quizzer og tests med AI-hjælp.'
-                  }
+                  {messages.comparison.callouts.quizGenerator}
                 </p>
               </div>
             </Link>
@@ -207,30 +206,42 @@ export default function Comparison({ content, table }) {
       <section className="max-w-4xl mx-auto mt-12 text-center">
         <div className="bg-gradient-to-r from-sage-50 to-green-50 rounded-xl p-8 border border-sage-200">
           <h2 className="text-2xl font-bold text-gray-800 mb-4">
-            {locale === 'en' ? 'Need Help Choosing?' : 'Har du brug for hjælp til at vælge?'}
+            {messages.comparison.callouts.needHelp}
           </h2>
           <p className="text-gray-600 mb-6">
-            {locale === 'en' 
-              ? 'Get personalized recommendations based on your specific needs and budget.'
-              : 'Få personlige anbefalinger baseret på dine specifikke behov og budget.'
-            }
+            {messages.comparison.callouts.getAdvice}
           </p>
-          <a href="mailto:kontakt@ai-undervisning.dk" className="btn-primary">
-            {locale === 'en' ? 'Get Advice' : 'Få rådgivning'}
-          </a>
+                      <a href="mailto:info@ai-skole.dk" className="btn-primary">
+              {messages.comparison.callouts.getAdviceButton}
+            </a>
         </div>
       </section>
     </Layout>
+    </>
   );
 }
 
 export async function getStaticProps() {
   try {
-    const filePath = path.join(process.cwd(), 'content/da/comparison.md');
-    const content = fs.readFileSync(filePath, 'utf8');
-    const table = parseTable(content);
-    return { props: { content, table } };
+    const daContent = fs.readFileSync(path.join(process.cwd(), 'content/da/comparison.md'), 'utf8');
+    const enContent = fs.readFileSync(path.join(process.cwd(), 'content/en/comparison.md'), 'utf8');
+    const table = parseTable(daContent);
+    return { 
+      props: { 
+        content: daContent,
+        table,
+        daContent,
+        enContent
+      } 
+    };
   } catch (e) {
-    return { props: { content: '# Fejl\n\nKunne ikke indlæse comparison.md', table: null } };
+    return { 
+      props: { 
+        content: '# Fejl\n\nKunne ikke indlæse comparison.md',
+        table: null,
+        daContent: '# Fejl\n\nKunne ikke indlæse comparison.md',
+        enContent: '# Error\n\nCould not load comparison.md'
+      } 
+    };
   }
 } 

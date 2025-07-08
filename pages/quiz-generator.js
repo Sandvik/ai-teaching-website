@@ -2,77 +2,33 @@ import Layout from '../components/Layout';
 import { useContext, useState } from 'react';
 import { LocaleContext } from './_app';
 import { SparklesIcon } from '@heroicons/react/24/outline';
+import Head from 'next/head';
 
-const quizData = [
-  {
-    topic: 'AI i undervisning',
-    questions: [
-      {
-        question: 'Hvilket AI-værktøj er bedst til at generere quizzer?',
-        options: ['ChatGPT', 'Canva AI', 'Quizlet AI', 'Diffit'],
-        answer: 2
-      },
-      {
-        question: 'Hvad er en potentiel ulempe ved at bruge AI i undervisningen?',
-        options: ['AI kan give forkerte svar', 'AI gør alle elever ens', 'AI fjerner behovet for lærere', 'AI gør undervisning kedelig'],
-        answer: 0
-      },
-      {
-        question: 'Sandt eller falsk: AI kan hjælpe med at differentiere opgaver.',
-        options: ['Sandt', 'Falsk'],
-        answer: 0
-      }
-    ]
-  },
-  {
-    topic: 'Matematik',
-    questions: [
-      {
-        question: 'Hvilket værktøj kan bruges til at lave matematik-quizzer?',
-        options: ['Quizlet AI', 'Canva AI', 'MagicSchool AI', 'Diffit'],
-        answer: 0
-      },
-      {
-        question: 'Hvilken AI-funktion kan hjælpe med at forklare svære begreber?',
-        options: ['Tekstgenerering', 'Billedgenerering', 'Oversættelse', 'Automatisering'],
-        answer: 0
-      },
-      {
-        question: 'Sandt eller falsk: AI kan lave grafer og visualiseringer.',
-        options: ['Sandt', 'Falsk'],
-        answer: 0
-      }
-    ]
-  },
-  {
-    topic: 'AI og etik',
-    questions: [
-      {
-        question: 'Hvad bør lærere altid gøre, når de bruger AI?',
-        options: ['Tjekke AI-svar for fejl', 'Bruge AI ukritisk', 'Lade AI undervise alene', 'Ignorere etik'],
-        answer: 0
-      },
-      {
-        question: 'Hvilket udsagn er korrekt?',
-        options: ['AI kan have bias', 'AI er altid objektiv', 'AI kan ikke lære', 'AI forstår følelser'],
-        answer: 0
-      },
-      {
-        question: 'Sandt eller falsk: AI kan bruges til at støtte inklusion.',
-        options: ['Sandt', 'Falsk'],
-        answer: 0
-      }
-    ]
-  }
-];
+function getQuizData(messages, locale) {
+  return [
+    {
+      topic: locale === 'en' ? 'AI in Teaching' : 'AI i undervisning',
+      questions: messages.quiz.questions.slice(0, 3)
+    },
+    {
+      topic: locale === 'en' ? 'Mathematics' : 'Matematik',
+      questions: messages.quiz.questions.slice(3, 6)
+    },
+    {
+      topic: locale === 'en' ? 'AI and Ethics' : 'AI og etik',
+      questions: messages.quiz.questions.slice(6, 8)
+    }
+  ];
+}
 
-function getRandomQuiz() {
+function getRandomQuiz(messages, locale) {
+  const quizData = getQuizData(messages, locale);
   const idx = Math.floor(Math.random() * quizData.length);
   return quizData[idx];
 }
 
 export default function QuizGenerator() {
-  const { messages } = useContext(LocaleContext);
+  const { messages, locale } = useContext(LocaleContext);
   const [quiz, setQuiz] = useState(null);
   const [userAnswers, setUserAnswers] = useState([]);
   const [showResult, setShowResult] = useState(false);
@@ -81,7 +37,7 @@ export default function QuizGenerator() {
   function startQuiz() {
     setLoading(true);
     setTimeout(() => {
-      const q = getRandomQuiz();
+      const q = getRandomQuiz(messages, locale);
       setQuiz(q);
       setUserAnswers(Array(q.questions.length).fill(null));
       setShowResult(false);
@@ -100,21 +56,26 @@ export default function QuizGenerator() {
     setShowResult(true);
   }
 
-  const correctCount = quiz ? quiz.questions.filter((q, i) => userAnswers[i] === q.answer).length : 0;
+  const correctCount = quiz ? quiz.questions.filter((q, i) => userAnswers[i] === q.correct).length : 0;
 
   return (
-    <Layout>
+    <>
+      <Head>
+        <title>{messages.meta.quizTitle}</title>
+        <meta name="description" content={messages.quiz.description} />
+      </Head>
+      <Layout>
       <section className="bg-gradient-to-br from-purple-50 to-indigo-100 rounded-xl shadow-lg py-8 px-4 mb-8 flex items-center gap-4">
         <SparklesIcon className="h-14 w-14 text-purple-500 flex-shrink-0" />
         <div>
-          <h1 className="text-3xl font-extrabold text-purple-800 mb-1">Quiz-generator</h1>
-          <p className="text-purple-700">Lav sjove og udfordrende AI-quizzer til klassen eller hjemmet.</p>
+          <h1 className="text-3xl font-extrabold text-purple-800 mb-1">{messages.quiz.headline}</h1>
+          <p className="text-purple-700">{messages.quiz.description}</p>
         </div>
       </section>
       {!quiz && (
         <div className="max-w-xl mx-auto text-center mb-8">
           <button onClick={startQuiz} className="bg-purple-600 text-white px-8 py-3 rounded-full shadow hover:bg-purple-700 transition text-lg font-semibold" disabled={loading}>
-            {loading ? 'Genererer…' : 'Start en quiz'}
+            {loading ? (locale === 'en' ? 'Generating...' : 'Genererer…') : messages.quiz.start}
           </button>
         </div>
       )}
@@ -135,27 +96,33 @@ export default function QuizGenerator() {
           </ol>
           {!showResult && (
             <button type="submit" className="bg-purple-600 text-white px-6 py-2 rounded-full shadow hover:bg-purple-700 transition mt-4" disabled={userAnswers.includes(null)}>
-              Se resultat
+              {locale === 'en' ? 'See result' : 'Se resultat'}
             </button>
           )}
           {showResult && (
             <div className="mt-6 text-center">
-              <div className="text-xl font-bold text-purple-700 mb-2">Du fik {correctCount} ud af {quiz.questions.length} rigtige!</div>
+              <div className="text-xl font-bold text-purple-700 mb-2">
+                {locale === 'en' 
+                  ? `You got ${correctCount} out of ${quiz.questions.length} correct!`
+                  : `Du fik ${correctCount} ud af ${quiz.questions.length} rigtige!`
+                }
+              </div>
               {correctCount === quiz.questions.length ? (
-                <div className="text-green-600 font-semibold">Fantastisk! Du er AI-ekspert 🎉</div>
+                <div className="text-green-600 font-semibold">{messages.quiz.expert}</div>
               ) : correctCount > 0 ? (
-                <div className="text-yellow-600 font-semibold">Godt gået – prøv igen for at blive endnu bedre!</div>
+                <div className="text-yellow-600 font-semibold">{messages.quiz.good}</div>
               ) : (
-                <div className="text-red-600 font-semibold">Prøv igen – AI kan være tricky!</div>
+                <div className="text-red-600 font-semibold">{messages.quiz.tryAgain}</div>
               )}
-              <button type="button" onClick={startQuiz} className="mt-4 bg-purple-600 text-white px-6 py-2 rounded-full shadow hover:bg-purple-700 transition">Ny quiz</button>
+              <button type="button" onClick={startQuiz} className="mt-4 bg-purple-600 text-white px-6 py-2 rounded-full shadow hover:bg-purple-700 transition">{messages.quiz.newQuiz}</button>
             </div>
           )}
         </form>
       )}
       <div className="max-w-xl mx-auto text-center mb-12">
-        <a href="/guide" className="inline-block bg-purple-600 text-white px-6 py-2 rounded-full shadow hover:bg-purple-700 transition">Læs guide om AI i quizzer</a>
+        <a href="/guide" className="inline-block bg-purple-600 text-white px-6 py-2 rounded-full shadow hover:bg-purple-700 transition">{messages.quiz.readGuide}</a>
       </div>
     </Layout>
+    </>
   );
 } 

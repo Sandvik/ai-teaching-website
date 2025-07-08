@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from 'next/head';
 import Layout from '../components/Layout';
 import MarkdownRenderer from '../components/MarkdownRenderer';
 import { LightBulbIcon, BookOpenIcon, UserGroupIcon, AcademicCapIcon } from '@heroicons/react/24/outline';
@@ -8,8 +9,11 @@ import { LocaleContext } from './_app';
 import fs from 'fs';
 import path from 'path';
 
-export default function Guide({ content }) {
-  const { locale } = useContext(LocaleContext);
+export default function Guide({ content, daContent, enContent }) {
+  const { messages, locale } = useContext(LocaleContext);
+  
+  // Vælg det korrekte indhold baseret på locale
+  const currentContent = locale === 'en' ? enContent : daContent;
   
   const quickLinks = [
     {
@@ -44,7 +48,12 @@ export default function Guide({ content }) {
   };
 
   return (
-    <Layout>
+    <>
+      <Head>
+        <title>{messages.guide.pageTitle}</title>
+        <meta name="description" content={messages.guide.pageDescription} />
+      </Head>
+      <Layout>
       {/* Hero Section */}
       <section className="hero-gradient rounded-2xl shadow-lg py-12 px-8 mb-8">
         <div className="max-w-4xl mx-auto text-center">
@@ -54,13 +63,10 @@ export default function Guide({ content }) {
             </div>
           </div>
           <h1 className="text-4xl font-bold text-gray-800 mb-4">
-            {locale === 'en' ? 'Complete Guide: AI in Education' : 'Komplet Guide: AI i Undervisning'}
+            {messages.guide.heroTitle}
           </h1>
           <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            {locale === 'en' 
-              ? 'Learn how to use ChatGPT and AI tools effectively in your teaching and home support.'
-              : 'Lær hvordan du bruger ChatGPT og AI-værktøjer effektivt i din undervisning og hjemmestøtte.'
-            }
+            {messages.guide.heroDescription}
           </p>
           
           {/* Quick Navigation */}
@@ -134,7 +140,7 @@ export default function Guide({ content }) {
           {/* Content */}
           <div className="lg:col-span-2">
             <article className="bg-white rounded-xl shadow-sm border border-gray-200 p-8 markdown-content">
-              <MarkdownRenderer content={content} />
+              <MarkdownRenderer content={currentContent} />
             </article>
           </div>
         </div>
@@ -144,19 +150,16 @@ export default function Guide({ content }) {
       <section className="max-w-4xl mx-auto mt-12">
         <div className="bg-sage-50 rounded-xl p-8">
           <h2 className="text-2xl font-bold text-gray-800 mb-6">
-            {locale === 'en' ? 'Related Resources' : 'Relaterede ressourcer'}
+            {messages.guide.callouts.relatedResources}
           </h2>
           <div className="grid md:grid-cols-2 gap-6">
             <Link href="/comparison" className="group">
               <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-200 hover:shadow-md transition-all duration-200 group-hover:border-sage-300">
                 <h3 className="text-lg font-semibold text-gray-800 mb-2 group-hover:text-sage-700">
-                  {locale === 'en' ? 'AI Tools Comparison' : 'AI-værktøjssammenligning'}
+                  {messages.guide.callouts.comparison}
                 </h3>
                 <p className="text-gray-600">
-                  {locale === 'en' 
-                    ? 'Compare different AI tools and find the best one for your needs.'
-                    : 'Sammenlign forskellige AI-værktøjer og find det bedste til dine behov.'
-                  }
+                  {messages.guide.callouts.comparisonDescription}
                 </p>
               </div>
             </Link>
@@ -164,13 +167,10 @@ export default function Guide({ content }) {
             <Link href="/quiz-generator" className="group">
               <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-200 hover:shadow-md transition-all duration-200 group-hover:border-sage-300">
                 <h3 className="text-lg font-semibold text-gray-800 mb-2 group-hover:text-sage-700">
-                  {locale === 'en' ? 'Quiz Generator' : 'Quiz-generator'}
+                  {messages.guide.callouts.quizGenerator}
                 </h3>
                 <p className="text-gray-600">
-                  {locale === 'en' 
-                    ? 'Create engaging quizzes and tests with AI assistance.'
-                    : 'Lav engagerende quizzer og tests med AI-hjælp.'
-                  }
+                  {messages.guide.callouts.quizGeneratorDescription}
                 </p>
               </div>
             </Link>
@@ -182,29 +182,39 @@ export default function Guide({ content }) {
       <section className="max-w-4xl mx-auto mt-12 text-center">
         <div className="bg-gradient-to-r from-sage-50 to-green-50 rounded-xl p-8 border border-sage-200">
           <h2 className="text-2xl font-bold text-gray-800 mb-4">
-            {locale === 'en' ? 'Need Help or Have Questions?' : 'Har du brug for hjælp eller spørgsmål?'}
+            {messages.guide.callouts.needHelp}
           </h2>
           <p className="text-gray-600 mb-6">
-            {locale === 'en' 
-              ? 'Share your experiences or get personalized advice from our community.'
-              : 'Del dine erfaringer eller få personlig rådgivning fra vores fællesskab.'
-            }
+            {messages.guide.callouts.needHelpDescription}
           </p>
-          <a href="mailto:kontakt@ai-undervisning.dk" className="btn-primary">
-            {locale === 'en' ? 'Contact Us' : 'Kontakt os'}
+          <a href="mailto:info@ai-skole.dk" className="btn-primary">
+            {messages.guide.callouts.contactUs}
           </a>
         </div>
       </section>
     </Layout>
+    </>
   );
 }
 
 export async function getStaticProps() {
   try {
-    const filePath = path.join(process.cwd(), 'content/da/guide.md');
-    const content = fs.readFileSync(filePath, 'utf8');
-    return { props: { content } };
+    const daContent = fs.readFileSync(path.join(process.cwd(), 'content/da/guide.md'), 'utf8');
+    const enContent = fs.readFileSync(path.join(process.cwd(), 'content/en/guide.md'), 'utf8');
+    return { 
+      props: { 
+        content: daContent,
+        daContent,
+        enContent
+      } 
+    };
   } catch (e) {
-    return { props: { content: '# Fejl\n\nKunne ikke indlæse guide.md' } };
+    return { 
+      props: { 
+        content: '# Fejl\n\nKunne ikke indlæse guide.md',
+        daContent: '# Fejl\n\nKunne ikke indlæse guide.md',
+        enContent: '# Error\n\nCould not load guide.md'
+      } 
+    };
   }
 } 

@@ -184,7 +184,7 @@ Dette projekt er licenseret under MIT License - se [LICENSE](LICENSE) filen for 
 
 ## 📞 Kontakt
 
-- **Email**: kontakt@ai-undervisning.dk
+- **Email**: info@ai-skole.dk
 - **Website**: [ai-undervisning.dk](https://ai-undervisning.dk)
 
 ## 🙏 Tak

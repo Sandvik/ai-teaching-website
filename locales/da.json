@@ -7,6 +7,17 @@
     "comparison": "Sammenligning",
     "quiz": "Quiz Generator"
   },
+  "layout": {
+    "logo": "AI-Skole - AI i Undervisning og Læring",
+    "languageToggle": "EN",
+    "footer": {
+      "description": "Praktiske guides og værktøjer til brug af AI i undervisning og læring.",
+      "resources": "Ressourcer",
+      "contact": "Kontakt",
+      "contactText": "Har du spørgsmål eller tips?",
+      "copyright": "Alle rettigheder forbeholdes."
+    }
+  },
   "landing": {
     "headline": "Opdag AI i undervisning og læring",
     "subheadline": "Guides, værktøjer og ressourcer til lærere, elever og forældre.",
@@ -14,29 +25,211 @@
   },
   "quiz": {
     "headline": "Quiz-generator",
-    "description": "Indtast et emne og få en AI-genereret quiz.",
+    "description": "Lav sjove og udfordrende AI-quizzer til klassen eller hjemmet.",
     "inputPlaceholder": "Skriv et emne...",
     "generate": "Generér quiz",
-    "result": "Din quiz:"
+    "result": "Din quiz:",
+    "start": "Start en quiz",
+    "score": "Du fik {score} ud af {total} rigtige!",
+    "expert": "Fantastisk! Du er AI-ekspert 🎉",
+    "good": "Godt gået – prøv igen for at blive endnu bedre!",
+    "tryAgain": "Prøv igen – AI kan være tricky!",
+    "newQuiz": "Ny quiz",
+    "readGuide": "Læs guide om AI i quizzer",
+    "questions": [
+      {
+        "question": "Hvilket AI-værktøj er bedst til at generere quizzer?",
+        "options": ["ChatGPT", "Google Bard", "Claude", "Alle ovenstående"],
+        "correct": 3
+      },
+      {
+        "question": "Hvad er en af de største udfordringer ved at bruge AI i undervisning?",
+        "options": ["AI kan give forkerte svar", "AI gør alle elever ens", "AI fjerner behovet for lærere", "AI gør undervisning kedelig"],
+        "correct": 0
+      },
+      {
+        "question": "Sandt eller falsk: AI kan hjælpe med at differentiere opgaver.",
+        "options": ["Sandt", "Falsk"],
+        "correct": 0
+      },
+      {
+        "question": "Hvilket værktøj kan bruges til at lave matematik-quizzer?",
+        "options": ["Kun ChatGPT", "Kun Wolfram Alpha", "Flere AI-værktøjer", "Ingen AI-værktøjer"],
+        "correct": 2
+      },
+      {
+        "question": "Hvilken AI-funktion kan hjælpe med at forklare svære begreber?",
+        "options": ["Tekstgenerering", "Billedgenerering", "Oversættelse", "Automatisering"],
+        "correct": 0
+      },
+      {
+        "question": "Hvad bør lærere altid gøre, når de bruger AI?",
+        "options": ["Kun stole på AI", "Altid verificere output", "Ignorere AI", "Kun bruge gratis værktøjer"],
+        "correct": 1
+      },
+      {
+        "question": "Hvad er en af AI's begrænsninger i undervisning?",
+        "options": ["AI kan have bias", "AI er altid objektiv", "AI kan ikke lære", "AI forstår følelser"],
+        "correct": 0
+      },
+      {
+        "question": "Sandt eller falsk: AI kan bruges til at støtte inklusion.",
+        "options": ["Sandt", "Falsk"],
+        "correct": 0
+      }
+    ]
   },
   "hero": {
     "title": "AI i Undervisning",
     "subtitle": "Praktiske guides og værktøjer til brug af AI i skolen og hjemme",
-    "cta": "Kom i gang"
+    "cta": "Kom i gang",
+    "seeTools": "Se værktøjer"
   },
   "features": {
-    "title": "Hvad kan du lære?",
+    "title": "Hvad kan AI hjælpe med?",
     "feature1": {
-      "title": "AI-værktøjer",
-      "description": "Lær at bruge ChatGPT, Claude og andre AI-værktøjer effektivt"
+      "title": "Undervisningsplanlægning",
+      "description": "Spar tid med AI-drevne lektionsplaner og aktiviteter"
     },
     "feature2": {
-      "title": "Undervisning",
-      "description": "Få praktiske tips til at integrere AI i din undervisning"
+      "title": "Differentiering",
+      "description": "Tilpas undervisning til alle elevers behov og niveauer"
     },
     "feature3": {
-      "title": "Læring",
-      "description": "Forstå hvordan AI kan støtte elevers læring og udvikling"
+      "title": "Kreativitet",
+      "description": "Få inspiration til nye undervisningsmetoder og projekter"
+    },
+    "feature4": {
+      "title": "Evaluering",
+      "description": "Lav quizzer og tests automatisk med AI"
     }
+  },
+  "home": {
+    "guide": {
+      "title": "Komplet Guide",
+      "description": "Lær hvordan du bruger ChatGPT og andre AI-værktøjer i din undervisning. Trin-for-trin guide med praktiske eksempler.",
+      "features": [
+        "Grundlæggende AI-koncepter",
+        "Praktiske anvendelser i klassen",
+        "Tips til forældre"
+      ],
+      "button": "Læs guiden"
+    },
+    "comparison": {
+      "title": "Værktøjssammenligning",
+      "description": "Find det bedste AI-værktøj til dine behov. Sammenligning af funktioner, priser og anvendelsesområder.",
+      "features": [
+        "Gratis vs. betalte værktøjer",
+        "Fag-specifikke anbefalinger",
+        "Praktiske anmeldelser"
+      ],
+      "button": "Se sammenligning"
+    },
+    "specialized": {
+      "title": "Specialiserede guides",
+      "math": {
+        "title": "AI i Matematik",
+        "description": "Opdag de bedste AI-værktøjer til matematikundervisning og hjemmestøtte."
+      },
+      "inclusion": {
+        "title": "Inklusion & Differentiering",
+        "description": "Hvordan AI kan støtte elever med forskellige behov og læringsstile."
+      },
+      "parents": {
+        "title": "Forældresamarbejde",
+        "description": "Forbedr kommunikationen mellem skole og hjem med AI-værktøjer."
+      },
+      "readMore": "Læs mere →"
+    },
+    "tools": {
+      "title": "Interaktive Værktøjer",
+      "description": "Prøv vores AI-drevne quiz-generator og få inspiration til dine egne aktiviteter.",
+      "button": "Prøv quiz-generator"
+    },
+    "cta": {
+      "title": "Del din erfaring",
+      "description": "Har du prøvet AI i undervisningen? Del dine tips og erfaringer med andre lærere og forældre.",
+      "button": "Kontakt os"
+    }
+  },
+  "comparison": {
+    "miniReviews": "Mini-anmeldelser",
+    "whichToChoose": "Hvilket værktøj skal du vælge?",
+    "pageTitle": "AI-værktøjssammenligning - AI-Skole - AI i Undervisning og Læring",
+    "pageDescription": "Find det perfekte AI-værktøj til dine undervisnings- og læringsbehov.",
+    "heroTitle": "AI-værktøjssammenligning",
+    "heroDescription": "Find det perfekte AI-værktøj til dine undervisnings- og læringsbehov.",
+    "filters": {
+      "free": "Gratis værktøjer",
+      "paid": "Betalte værktøjer",
+      "topRated": "Højest vurderet"
+    },
+    "navigation": {
+      "overview": "Oversigt over AI-værktøjer til undervisning",
+      "topTools": "Top værktøjer",
+      "subjectSpecific": "Fag-specifikke AI-værktøjer",
+      "applications": "Anvendelsesområder"
+    },
+    "callouts": {
+      "learnMore": "Lær hvordan du bruger AI-værktøjer effektivt i undervisning.",
+      "quizGenerator": "Lav engagerende quizzer og tests med AI-hjælp.",
+      "needHelp": "Har du brug for hjælp til at vælge?",
+      "getAdvice": "Få personlige anbefalinger baseret på dine specifikke behov og budget.",
+      "getAdviceButton": "Få rådgivning"
+    }
+  },
+  "aiTeaching": {
+    "pageTitle": "AI i Undervisning - AI-Skole - AI i Undervisning og Læring",
+    "pageDescription": "Mester kunsten at integrere AI i din undervisning med praktiske strategier, værktøjer og virkelige eksempler.",
+    "heroTitle": "AI i Undervisning",
+    "heroDescription": "Mester kunsten at integrere AI i din undervisning med praktiske strategier, værktøjer og virkelige eksempler.",
+    "navigation": {
+      "basicConcepts": "Grundlæggende koncepter",
+      "toolsApps": "Værktøjer & Apps",
+      "homeworkHelp": "Lektiehjælp"
+    },
+    "callouts": {
+      "learnMore": "Lær hvordan du bruger AI-værktøjer effektivt i undervisning.",
+      "comparison": "AI-værktøjssammenligning",
+      "comparisonDescription": "Sammenlign forskellige AI-værktøjer og find det bedste til dine behov.",
+      "quizGenerator": "Lav engagerende quizzer og tests med AI-hjælp.",
+      "cta": "Start din AI-undervisningsrejse i dag og opdag de uendelige muligheder for at forbedre elevlæring."
+    }
+  },
+  "guide": {
+    "pageTitle": "Komplet Guide: AI i Undervisning - AI-Skole - AI i Undervisning og Læring",
+    "pageDescription": "Lær hvordan du bruger ChatGPT og AI-værktøjer effektivt i din undervisning og hjemmestøtte.",
+    "heroTitle": "Komplet Guide: AI i Undervisning",
+    "heroDescription": "Lær hvordan du bruger ChatGPT og AI-værktøjer effektivt i din undervisning og hjemmestøtte.",
+    "navigation": {
+      "howToUse": "Sådan bruger du ChatGPT og AI i undervisningen",
+      "tableOfContents": "Indholdsfortegnelse",
+      "introduction": "Introduktion",
+      "generateQuizzes": "Generér quizzer",
+      "getInspiration": "Få inspiration",
+      "prepareMaterials": "Forbered materiale",
+      "parentSupport": "Forældrestøtte",
+      "ethics": "Etik og ansvarlig brug"
+    },
+    "quickLinks": {
+      "gettingStarted": "Kom i gang",
+      "forTeachers": "For lærere",
+      "forParents": "For forældre"
+    },
+    "callouts": {
+      "relatedResources": "Relaterede ressourcer",
+      "comparison": "AI-værktøjssammenligning",
+      "comparisonDescription": "Sammenlign forskellige AI-værktøjer og find det bedste til dine behov.",
+      "quizGenerator": "Quiz-generator",
+      "quizGeneratorDescription": "Lav engagerende quizzer og tests med AI-hjælp.",
+      "needHelp": "Har du brug for hjælp eller spørgsmål?",
+      "needHelpDescription": "Del dine erfaringer eller få personlig rådgivning fra vores fællesskab.",
+      "contactUs": "Kontakt os"
+    }
+  },
+  "meta": {
+    "homeTitle": "AI-Skole - AI i Undervisning og Læring",
+    "homeDescription": "Opdag hvordan kunstig intelligens kan forbedre læring og undervisning. Praktiske værktøjer og guides til lærere og forældre.",
+    "quizTitle": "Quiz Generator - AI-Skole - AI i Undervisning og Læring"
   }
 } 

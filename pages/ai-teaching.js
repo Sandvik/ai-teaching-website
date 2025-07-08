@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from 'next/head';
 import Layout from '../components/Layout';
 import MarkdownRenderer from '../components/MarkdownRenderer';
 import { AcademicCapIcon, LightBulbIcon, UserGroupIcon, ChartBarIcon, SparklesIcon, BookOpenIcon } from '@heroicons/react/24/outline';
@@ -8,8 +9,11 @@ import { LocaleContext } from './_app';
 import fs from 'fs';
 import path from 'path';
 
-export default function AITeaching({ content }) {
-  const { locale } = useContext(LocaleContext);
+export default function AITeaching({ content, daContent, enContent }) {
+  const { messages, locale } = useContext(LocaleContext);
+  
+  // Vælg det korrekte indhold baseret på locale
+  const currentContent = locale === 'en' ? enContent : daContent;
   
   const quickLinks = [
     {
@@ -50,7 +54,12 @@ export default function AITeaching({ content }) {
   };
 
   return (
-    <Layout>
+    <>
+      <Head>
+        <title>{messages.aiTeaching.pageTitle}</title>
+        <meta name="description" content={messages.aiTeaching.pageDescription} />
+      </Head>
+      <Layout>
       {/* Hero Section */}
       <section className="hero-gradient rounded-2xl shadow-lg py-12 px-8 mb-8">
         <div className="max-w-4xl mx-auto text-center">
@@ -60,13 +69,10 @@ export default function AITeaching({ content }) {
             </div>
           </div>
           <h1 className="text-4xl font-bold text-gray-800 mb-4">
-            {locale === 'en' ? 'AI in Teaching: Complete Guide' : 'AI i Undervisning: Komplet Guide'}
+            {messages.aiTeaching.heroTitle}
           </h1>
           <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            {locale === 'en' 
-              ? 'Master the art of integrating AI into your teaching practice with practical strategies, tools, and real-world examples.'
-              : 'Mester kunsten at integrere AI i din undervisning med praktiske strategier, værktøjer og virkelige eksempler.'
-            }
+            {messages.aiTeaching.heroDescription}
           </p>
           
           {/* Quick Navigation */}
@@ -170,7 +176,7 @@ export default function AITeaching({ content }) {
           {/* Content */}
           <div className="lg:col-span-3">
             <article className="bg-white rounded-xl shadow-sm border border-gray-200 p-8 markdown-content">
-              <MarkdownRenderer content={content} />
+              <MarkdownRenderer content={currentContent} />
             </article>
           </div>
         </div>
@@ -189,10 +195,7 @@ export default function AITeaching({ content }) {
                   {locale === 'en' ? 'Complete Guide' : 'Komplet guide'}
                 </h3>
                 <p className="text-gray-600">
-                  {locale === 'en' 
-                    ? 'Learn how to use AI tools effectively in education.'
-                    : 'Lær hvordan du bruger AI-værktøjer effektivt i undervisning.'
-                  }
+                  {messages.aiTeaching.callouts.learnMore}
                 </p>
               </div>
             </Link>
@@ -200,13 +203,10 @@ export default function AITeaching({ content }) {
             <Link href="/comparison" className="group">
               <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-200 hover:shadow-md transition-all duration-200 group-hover:border-sage-300">
                 <h3 className="text-lg font-semibold text-gray-800 mb-2 group-hover:text-sage-700">
-                  {locale === 'en' ? 'AI Tools Comparison' : 'AI-værktøjssammenligning'}
+                  {messages.aiTeaching.callouts.comparison}
                 </h3>
                 <p className="text-gray-600">
-                  {locale === 'en' 
-                    ? 'Compare different AI tools and find the best one for your needs.'
-                    : 'Sammenlign forskellige AI-værktøjer og find det bedste til dine behov.'
-                  }
+                  {messages.aiTeaching.callouts.comparisonDescription}
                 </p>
               </div>
             </Link>
@@ -217,10 +217,7 @@ export default function AITeaching({ content }) {
                   {locale === 'en' ? 'Quiz Generator' : 'Quiz-generator'}
                 </h3>
                 <p className="text-gray-600">
-                  {locale === 'en' 
-                    ? 'Create engaging quizzes and tests with AI assistance.'
-                    : 'Lav engagerende quizzer og tests med AI-hjælp.'
-                  }
+                  {messages.aiTeaching.callouts.quizGenerator}
                 </p>
               </div>
             </Link>
@@ -235,13 +232,10 @@ export default function AITeaching({ content }) {
             {locale === 'en' ? 'Ready to Transform Your Teaching?' : 'Klar til at transformere din undervisning?'}
           </h2>
           <p className="text-gray-600 mb-6">
-            {locale === 'en' 
-              ? 'Start your AI teaching journey today and discover the endless possibilities for enhancing student learning.'
-              : 'Start din AI-undervisningsrejse i dag og opdag de uendelige muligheder for at forbedre elevlæring.'
-            }
+            {messages.aiTeaching.callouts.cta}
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <a href="mailto:kontakt@ai-undervisning.dk" className="btn-primary">
+            <a href="mailto:info@ai-skole.dk" className="btn-primary">
               {locale === 'en' ? 'Get Started Today' : 'Kom i gang i dag'}
             </a>
             <Link href="/guide" className="btn-secondary">
@@ -251,15 +245,28 @@ export default function AITeaching({ content }) {
         </div>
       </section>
     </Layout>
+    </>
   );
 }
 
 export async function getStaticProps() {
   try {
-    const filePath = path.join(process.cwd(), 'content/da/ai-undervisning.md');
-    const content = fs.readFileSync(filePath, 'utf8');
-    return { props: { content } };
+    const daContent = fs.readFileSync(path.join(process.cwd(), 'content/da/ai-undervisning.md'), 'utf8');
+    const enContent = fs.readFileSync(path.join(process.cwd(), 'content/en/ai-teaching.md'), 'utf8');
+    return { 
+      props: { 
+        content: daContent,
+        daContent,
+        enContent
+      } 
+    };
   } catch (e) {
-    return { props: { content: '# Fejl\n\nKunne ikke indlæse ai-undervisning.md' } };
+    return { 
+      props: { 
+        content: '# Fejl\n\nKunne ikke indlæse ai-undervisning.md',
+        daContent: '# Fejl\n\nKunne ikke indlæse ai-undervisning.md',
+        enContent: '# Error\n\nCould not load ai-teaching.md'
+      } 
+    };
   }
 } 
