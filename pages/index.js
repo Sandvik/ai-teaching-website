@@ -13,6 +13,7 @@ import {
   GlobeAltIcon,
   HeartIcon
 } from '@heroicons/react/24/outline';
+import Image from 'next/image';
 
 export default function Home() {
   const { locale, messages } = useContext(LocaleContext);
@@ -40,21 +41,31 @@ export default function Home() {
       </Head>
       <Layout>
       {/* Hero Section */}
-      <section className="text-center py-16 bg-gradient-to-br from-sage-50 to-blue-50 rounded-xl mb-12">
-        <div className="max-w-3xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            {messages.hero.title}
-          </h1>
-          <p className="text-xl text-gray-600 mb-8">
-            {messages.hero.subtitle}
-          </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Link href="/guide" className="btn-primary text-lg px-8 py-4" onMouseEnter={() => preloadPage('/guide')}>
-              {messages.hero.cta}
-            </Link>
-            <Link href="/comparison" className="btn-secondary text-lg px-8 py-4" onMouseEnter={() => preloadPage('/comparison')}>
-              {messages.hero.seeTools}
-            </Link>
+      <section className="relative text-center py-0 md:py-0 mb-12">
+        <div className="relative w-full h-72 md:h-[420px] rounded-xl overflow-hidden">
+          <Image
+            src="/images/hero-education.jpg"
+            alt="Students collaborating with AI"
+            layout="fill"
+            objectFit="cover"
+            priority
+            className="z-0"
+          />
+          <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center z-10 px-4">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 drop-shadow-lg">
+              {messages.hero.title}
+            </h1>
+            <p className="text-xl text-gray-100 mb-8 max-w-2xl mx-auto drop-shadow">
+              {messages.hero.subtitle}
+            </p>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <Link href="/guide" className="btn-primary text-lg px-8 py-4 shadow-lg" onMouseEnter={() => preloadPage('/guide')}>
+                {messages.hero.cta}
+              </Link>
+              <Link href="/comparison" className="btn-secondary text-lg px-8 py-4 shadow-lg" onMouseEnter={() => preloadPage('/comparison')}>
+                {messages.hero.seeTools}
+              </Link>
+            </div>
           </div>
         </div>
       </section>
