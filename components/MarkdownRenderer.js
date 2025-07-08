@@ -201,7 +201,6 @@ const addIdsToHeadings = (html) => {
           .replace(/^-|-$/g, '');
       }
       
-      console.log(`Generated ID for heading "${content}": ${id}`);
       return `<h${level} id="${id}">${content}</h${level}>`;
     }
   );

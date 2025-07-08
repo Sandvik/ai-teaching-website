@@ -8,7 +8,7 @@
 
 <div style="display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0;">
 
-<a href="#sammenligningstabel" style="
+<a href="#top-10-ai-værktøjer-til-undervisning" style="
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     padding: 12px 20px;
@@ -20,9 +20,9 @@
     border: none;
     cursor: pointer;
     font-size: 14px;
-">🚦 Sammenligningstabel</a>
+">🏆 Top 10 AI-værktøjer</a>
 
-<a href="#hurtige-anbefalinger" style="
+<a href="#fag-specifikke-ai-værktøjer" style="
     background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
     color: white;
     padding: 12px 20px;
@@ -34,9 +34,9 @@
     border: none;
     cursor: pointer;
     font-size: 14px;
-">🔍 Hurtige anbefalinger</a>
+">📚 Fag-specifikke værktøjer</a>
 
-<a href="#danske-ai-værktøjer" style="
+<a href="#anvendelsesområder" style="
     background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
     color: white;
     padding: 12px 20px;
@@ -48,9 +48,9 @@
     border: none;
     cursor: pointer;
     font-size: 14px;
-">🇩🇰 Danske AI-værktøjer</a>
+">🎯 Anvendelsesområder</a>
 
-<a href="#praktiske-tips" style="
+<a href="#pris-sammenligning" style="
     background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
     color: white;
     padding: 12px 20px;
@@ -62,9 +62,9 @@
     border: none;
     cursor: pointer;
     font-size: 14px;
-">🛠️ Praktiske tips</a>
+">💰 Pris-sammenligning</a>
 
-<a href="#sikkerhed-etik" style="
+<a href="#anbefalinger-efter-behov" style="
     background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
     color: white;
     padding: 12px 20px;
@@ -76,9 +76,9 @@
     border: none;
     cursor: pointer;
     font-size: 14px;
-">🛡️ Sikkerhed & etik</a>
+">🏆 Anbefalinger</a>
 
-<a href="#visuelle-eksempler" style="
+<a href="#detaljerede-anmeldelser" style="
     background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
     color: #333;
     padding: 12px 20px;
@@ -90,9 +90,9 @@
     border: none;
     cursor: pointer;
     font-size: 14px;
-">🎨 Visuelle eksempler</a>
+">📊 Detaljerede anmeldelser</a>
 
-<a href="#konklusion" style="
+<a href="#tips-til-valg-af-aiværktøjer" style="
     background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
     color: #333;
     padding: 12px 20px;
@@ -104,7 +104,7 @@
     border: none;
     cursor: pointer;
     font-size: 14px;
-">✅ Konklusion</a>
+">💡 Tips til valg</a>
 
 </div>
 

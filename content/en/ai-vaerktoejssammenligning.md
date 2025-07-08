@@ -36,7 +36,7 @@
     font-size: 14px;
 ">🔍 Specialized AI Tools</a>
 
-<a href="#ai-tools-for-specific-subjects" style="
+<a href="#subject-specific-tools" style="
     background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
     color: white;
     padding: 12px 20px;

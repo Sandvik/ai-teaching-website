@@ -31,10 +31,12 @@ export default function Home() {
         <title>{messages.meta.homeTitle}</title>
         <meta name="description" content={messages.meta.homeDescription} />
         
-        {/* Preload critical pages */}
-        <link rel="prefetch" href="/guide" />
-        <link rel="prefetch" href="/comparison" />
-        <link rel="prefetch" href="/ai-teaching" />
+                  {/* Preload critical pages */}
+          <link rel="prefetch" href="/guide" />
+          <link rel="prefetch" href="/comparison" />
+          <link rel="prefetch" href="/ai-teaching" />
+          <link rel="prefetch" href="/ai-foraeldremoede" />
+          <link rel="prefetch" href="/quiz-generator" />
       </Head>
       <Layout>
       {/* Hero Section */}
@@ -131,7 +133,7 @@ export default function Home() {
                 </div>
               ))}
             </div>
-            <Link href="/comparison" className="btn-primary">
+            <Link href="/comparison" className="btn-primary" onMouseEnter={() => preloadPage('/comparison')}>
               {messages.home.comparison.button}
             </Link>
           </div>
@@ -154,7 +156,7 @@ export default function Home() {
             <p className="text-gray-600 mb-4">
               {messages.home.specialized.danish.description}
             </p>
-            <Link href="/ai-i-dansk-fag-detailed" className="text-sage-600 hover:text-sage-700 font-medium">
+            <Link href="/ai-i-dansk-fag-detailed" className="text-sage-600 hover:text-sage-700 font-medium" onMouseEnter={() => preloadPage('/ai-i-dansk-fag-detailed')}>
               {messages.home.specialized.readMore}
             </Link>
           </div>
@@ -169,7 +171,7 @@ export default function Home() {
             <p className="text-gray-600 mb-4">
               {messages.home.specialized.math.description}
             </p>
-            <Link href="/ai-i-matematik-detailed" className="text-sage-600 hover:text-sage-700 font-medium">
+            <Link href="/ai-i-matematik-detailed" className="text-sage-600 hover:text-sage-700 font-medium" onMouseEnter={() => preloadPage('/ai-i-matematik-detailed')}>
               {messages.home.specialized.readMore}
             </Link>
           </div>
@@ -184,7 +186,7 @@ export default function Home() {
             <p className="text-gray-600 mb-4">
               {messages.home.specialized.history.description}
             </p>
-            <Link href="/ai-i-historie-detailed" className="text-sage-600 hover:text-sage-700 font-medium">
+            <Link href="/ai-i-historie-detailed" className="text-sage-600 hover:text-sage-700 font-medium" onMouseEnter={() => preloadPage('/ai-i-historie-detailed')}>
               {messages.home.specialized.readMore}
             </Link>
           </div>
@@ -199,7 +201,7 @@ export default function Home() {
             <p className="text-gray-600 mb-4">
               {messages.home.specialized.law.description}
             </p>
-            <Link href="/ai-lovgivning" className="text-sage-600 hover:text-sage-700 font-medium">
+            <Link href="/ai-lovgivning" className="text-sage-600 hover:text-sage-700 font-medium" onMouseEnter={() => preloadPage('/ai-lovgivning')}>
               {messages.home.specialized.readMore}
             </Link>
           </div>
@@ -214,7 +216,7 @@ export default function Home() {
             <p className="text-gray-600 mb-4">
               {messages.home.specialized.toolsComparison.description}
             </p>
-            <Link href="/ai-vaerktoejssammenligning" className="text-sage-600 hover:text-sage-700 font-medium">
+            <Link href="/ai-vaerktoejssammenligning" className="text-sage-600 hover:text-sage-700 font-medium" onMouseEnter={() => preloadPage('/ai-vaerktoejssammenligning')}>
               {messages.home.specialized.readMore}
             </Link>
           </div>
@@ -229,7 +231,7 @@ export default function Home() {
             <p className="text-gray-600 mb-4">
               {messages.home.specialized.inclusion.description}
             </p>
-            <Link href="/ai-inklusion" className="text-sage-600 hover:text-sage-700 font-medium">
+            <Link href="/ai-inklusion" className="text-sage-600 hover:text-sage-700 font-medium" onMouseEnter={() => preloadPage('/ai-inklusion')}>
               {messages.home.specialized.readMore}
             </Link>
           </div>
@@ -251,18 +253,21 @@ export default function Home() {
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-4">
-            <div className="bg-white rounded-lg p-4 text-center">
+            <Link href="/ai-inklusion" className="bg-white rounded-lg p-4 text-center hover:shadow-md transition-shadow" onMouseEnter={() => preloadPage('/ai-inklusion')}>
               <div className="text-blue-600 font-bold mb-2">{messages.home.danishFocus.folkeskolen.title}</div>
-              <p className="text-sm text-gray-600">{messages.home.danishFocus.folkeskolen.description}</p>
-            </div>
-            <div className="bg-white rounded-lg p-4 text-center">
+              <p className="text-sm text-gray-600 mb-3">{messages.home.danishFocus.folkeskolen.description}</p>
+              <span className="text-sage-600 text-sm font-medium hover:text-sage-700">Læs mere →</span>
+            </Link>
+            <Link href="/ai-teaching" className="bg-white rounded-lg p-4 text-center hover:shadow-md transition-shadow" onMouseEnter={() => preloadPage('/ai-teaching')}>
               <div className="text-green-600 font-bold mb-2">{messages.home.danishFocus.gymnasiet.title}</div>
-              <p className="text-sm text-gray-600">{messages.home.danishFocus.gymnasiet.description}</p>
-            </div>
-            <div className="bg-white rounded-lg p-4 text-center">
+              <p className="text-sm text-gray-600 mb-3">{messages.home.danishFocus.gymnasiet.description}</p>
+              <span className="text-sage-600 text-sm font-medium hover:text-sage-700">Læs mere →</span>
+            </Link>
+            <Link href="/ai-foraeldremoede" className="bg-white rounded-lg p-4 text-center hover:shadow-md transition-shadow" onMouseEnter={() => preloadPage('/ai-foraeldremoede')}>
               <div className="text-purple-600 font-bold mb-2">{messages.home.danishFocus.hjemmeundervisning.title}</div>
-              <p className="text-sm text-gray-600">{messages.home.danishFocus.hjemmeundervisning.description}</p>
-            </div>
+              <p className="text-sm text-gray-600 mb-3">{messages.home.danishFocus.hjemmeundervisning.description}</p>
+              <span className="text-sage-600 text-sm font-medium hover:text-sage-700">Læs mere →</span>
+            </Link>
           </div>
         </div>
       </section>
@@ -277,7 +282,7 @@ export default function Home() {
           <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
             {messages.home.tools.description}
           </p>
-          <Link href="/quiz-generator" className="btn-primary">
+          <Link href="/quiz-generator" className="btn-primary" onMouseEnter={() => preloadPage('/quiz-generator')}>
             {messages.home.tools.button}
           </Link>
         </div>

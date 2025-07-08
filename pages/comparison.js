@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Head from 'next/head';
 import Layout from '../components/Layout';
 import MarkdownRenderer from '../components/MarkdownRenderer';
@@ -24,21 +24,30 @@ export default function Comparison({ content, table, daContent, enContent }) {
   // Vælg det korrekte indhold baseret på locale
   const currentContent = locale === 'en' ? enContent : daContent;
   
+  // State for active filter
+  const [activeFilter, setActiveFilter] = React.useState('all');
+  
   const quickFilters = [
     {
+      id: 'free',
       title: messages.comparison.filters.free,
       icon: SparklesIcon,
-      color: 'bg-green-100 text-green-700'
+      color: 'bg-green-100 text-green-700',
+      activeColor: 'bg-green-500 text-white'
     },
     {
+      id: 'paid',
       title: messages.comparison.filters.paid,
       icon: CurrencyDollarIcon,
-      color: 'bg-blue-100 text-blue-700'
+      color: 'bg-blue-100 text-blue-700',
+      activeColor: 'bg-blue-500 text-white'
     },
     {
+      id: 'topRated',
       title: messages.comparison.filters.topRated,
       icon: StarIcon,
-      color: 'bg-yellow-100 text-yellow-700'
+      color: 'bg-yellow-100 text-yellow-700',
+      activeColor: 'bg-yellow-500 text-white'
     }
   ];
 
@@ -52,6 +61,73 @@ export default function Comparison({ content, table, daContent, enContent }) {
       });
     }
   };
+
+  const getFilteredContent = () => {
+    if (activeFilter === 'all') {
+      return currentContent;
+    }
+    
+    // For now, we'll just scroll to relevant sections based on filter
+    // In a more advanced implementation, you could parse and filter the markdown content
+    let targetSection = '';
+    switch (activeFilter) {
+      case 'free':
+        targetSection = 'pris-sammenligning';
+        break;
+      case 'paid':
+        targetSection = 'pris-sammenligning';
+        break;
+      case 'topRated':
+        targetSection = 'detaljerede-anmeldelser';
+        break;
+      default:
+        return currentContent;
+    }
+    
+    // Scroll to the relevant section
+    setTimeout(() => {
+      const element = document.getElementById(targetSection);
+      if (element) {
+        element.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    }, 100);
+    
+    return currentContent;
+  };
+
+  // Handle filter changes
+  useEffect(() => {
+    if (activeFilter !== 'all') {
+      let targetSection = '';
+      switch (activeFilter) {
+        case 'free':
+          targetSection = 'pris-sammenligning';
+          break;
+        case 'paid':
+          targetSection = 'pris-sammenligning';
+          break;
+        case 'topRated':
+          targetSection = 'detaljerede-anmeldelser';
+          break;
+        default:
+          return;
+      }
+      
+      // Scroll to the relevant section
+      setTimeout(() => {
+        const element = document.getElementById(targetSection);
+        if (element) {
+          element.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      }, 100);
+    }
+  }, [activeFilter]);
 
   const renderStars = (rating) => {
     const stars = [];
@@ -90,10 +166,18 @@ export default function Comparison({ content, table, daContent, enContent }) {
           
           {/* Quick Filters */}
           <div className="flex flex-wrap justify-center gap-4">
+            <button
+              onClick={() => setActiveFilter('all')}
+              className={`${activeFilter === 'all' ? 'bg-sage-500 text-white' : 'bg-gray-100 text-gray-700'} px-6 py-3 rounded-full font-medium hover:shadow-md transition-all duration-200 flex items-center gap-2`}
+            >
+              <ChartBarIcon className="h-5 w-5" />
+              {locale === 'en' ? 'All Tools' : 'Alle værktøjer'}
+            </button>
             {quickFilters.map((filter, index) => (
               <button
                 key={index}
-                className={`${filter.color} px-6 py-3 rounded-full font-medium hover:shadow-md transition-all duration-200 flex items-center gap-2`}
+                onClick={() => setActiveFilter(filter.id)}
+                className={`${activeFilter === filter.id ? filter.activeColor : filter.color} px-6 py-3 rounded-full font-medium hover:shadow-md transition-all duration-200 flex items-center gap-2`}
               >
                 <filter.icon className="h-5 w-5" />
                 {filter.title}
@@ -164,7 +248,7 @@ export default function Comparison({ content, table, daContent, enContent }) {
           {/* Main Content */}
           <div className="lg:col-span-3">
             <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-8">
-              <MarkdownRenderer content={currentContent} />
+              <MarkdownRenderer content={getFilteredContent()} />
             </div>
           </div>
         </div>
